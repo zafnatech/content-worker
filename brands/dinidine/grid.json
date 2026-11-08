@@ -1,0 +1,75 @@
+{
+ "timezone": "America/New_York",
+ "min_days": 75,
+ "weekly": {
+  "mon": {
+   "pillars": [
+    "consejo"
+   ],
+   "times": {
+    "facebook": "10:00",
+    "instagram": "12:00",
+    "tiktok": "18:00",
+    "linkedin": "15:30"
+   }
+  },
+  "tue": {
+   "pillars": [
+    "menu"
+   ],
+   "times": {
+    "facebook": "10:00",
+    "instagram": "12:00",
+    "tiktok": "18:00",
+    "youtube": "17:00"
+   }
+  },
+  "wed": {
+   "pillars": [
+    "producto"
+   ],
+   "times": {
+    "facebook": "10:00",
+    "instagram": "12:00"
+   }
+  },
+  "thu": {
+   "pillars": [
+    "agentes",
+    "objecion"
+   ],
+   "times": {
+    "facebook": "10:00",
+    "tiktok": "18:00",
+    "youtube": "17:00",
+    "linkedin": "15:30"
+   }
+  },
+  "fri": {
+   "pillars": [
+    "marca"
+   ],
+   "times": {
+    "facebook": "10:00",
+    "instagram": "12:00",
+    "tiktok": "18:00",
+    "youtube": "17:00"
+   }
+  }
+ },
+ "special": {
+  "2026-11-25": "fecha-gracias-2026",
+  "2026-11-28": "fecha-small-business-2026",
+  "2026-12-12": "fecha-guadalupe-2026",
+  "2026-12-24": "fecha-nochebuena-2026",
+  "2026-12-31": "fecha-fin-de-ano-2026",
+  "2027-01-06": "fecha-reyes-2027"
+ },
+ "special_times": {
+  "facebook": "10:00",
+  "instagram": "12:00"
+ },
+ "skip": [
+  "2026-11-26"
+ ]
+}

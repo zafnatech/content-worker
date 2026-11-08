@@ -3,7 +3,9 @@
 the kill switch and the approval live in the platform.
 
   python3 worker.py make --client maya [--kind top3|estrella] [--date 2026-11-08] [--dry]
-  python3 worker.py run                      # one video for every client in WORKER_CLIENTS (daily cron on Render)
+  python3 worker.py run                      # the week ahead from brands/<brand>/grid.json (weekly cron on Render);
+                                             # WORKER_MODE=legacy goes back to "a menu video per client per run"
+  python3 worker.py plan [--date D] [--days N]   # prints the calendar (no render, no cost)
 
 Env (host dashboard only, never git/chat):
   DINIDINE_API_URL, DINIDINE_API_KEY        read-only menu key (scope menu:read)
@@ -13,7 +15,8 @@ Env (host dashboard only, never git/chat):
   CHANNELS_JSON   {"timezone":"America/New_York","channels":[{key,network,brand,integration_id,enabled,daily_cap,slots}]}
   CLIENTS_JSON    only if WORKER_REQUIRE_CONSENT=1 (default 0: no restaurant permission needed, Jonathan's decision 8 Nov)
   WORKER_CLIENTS  `all` = every published restaurant of the brand (rotating, WORKER_MAX_PER_RUN per run, default 3), or a comma list of slugs;  WORKER_BRAND (default dinidine);  WORKER_VOICE_USD_CAP (default 1.00 per run)
-Known limit (next platform change): slot state lives in out/.platform-sync.json, which is lost between cloud runs.
+The grid fixes every post time from the date (job.schedule), so no slot state has to survive between cloud runs.
+  WORKER_BANK_APPROVED=1 approves the whole script bank (brands/<brand>/scripts.json) · WORKER_UNLOCK=tv,agents opens gated pieces
 """
 import os
 import sys
@@ -27,7 +30,7 @@ os.chdir(HERE)
 
 from cf.env import load_env  # noqa: E402
 load_env()
-from cf import menu_video, guardrails  # noqa: E402
+from cf import menu_video, guardrails, grid as gridmod, scripts as scriptmod  # noqa: E402
 
 
 def log(msg):
@@ -89,7 +92,7 @@ def load_channels():
     raise RuntimeError('Falta CHANNELS_JSON (o channels.json)')
 
 
-def make_one(client, kind, seed, brand='dinidine', dry=False, deps=None):
+def make_one(client, kind, seed, brand='dinidine', dry=False, deps=None, schedule=None):
     """Returns ('ok'|'skip'|'error', message, voice_usd_est)."""
     d = {'menu': fetch_menu, 'render': render_job, 'sync': sync, 'channels': load_channels}
     d.update(deps or {})
@@ -101,6 +104,7 @@ def make_one(client, kind, seed, brand='dinidine', dry=False, deps=None):
                                require_consent=os.environ.get('WORKER_REQUIRE_CONSENT', '0') == '1')
     if job is None:
         return 'skip', f'{client}: el menú tiene muy pocos platos con precio para "{kind}"', 0.0
+    job['schedule'] = schedule
     out_dir = os.path.join('out', seed)
     try:
         manifest_path, m = d['render'](job, out_dir)
@@ -115,6 +119,129 @@ def make_one(client, kind, seed, brand='dinidine', dry=False, deps=None):
         return 'error', f'{client}: no pude registrar en el panel ({e})', cost
     return ('ok', f'{client}: {job["id"]} listo para tu aprobación', cost) if (done or dry) else (
         'skip', f'{client}: {job["id"]} ya estaba registrado', cost)
+
+
+def finish(label, job, deps, dry):
+    """Render + register one prepared job. Returns (status, message, voice_usd_est)."""
+    d = {'render': render_job, 'sync': sync, 'channels': load_channels}
+    d.update(deps or {})
+    out_dir = os.path.join('out', job['id'])
+    try:
+        manifest_path, m = d['render'](job, out_dir)
+    except Exception as e:
+        return 'error', f'{label}: {e}', 0.0
+    cost = float(m.get('voice_cost_usd_est') or 0)
+    if m.get('draft') or 'PENDIENTE' in str(m.get('voice', '')):
+        return 'skip', f'{label}: sin voz; no se registra', cost
+    try:
+        done = d['sync'](d['channels'](), [(manifest_path, m)], dry)
+    except Exception as e:
+        return 'error', f'{label}: no pude registrar en el panel ({e})', cost
+    return ('ok', f'{label}: {job["id"]} listo para tu aprobación', cost) if (done or dry) else (
+        'skip', f'{label}: {job["id"]} ya estaba registrado', cost)
+
+
+def resolve_week(brand, start, days=7, networks=None, clients=None, now=None, min_lead_hours=6, gates=None):
+    """The week as a list of items, no side effects. Each item:
+    {date, kind: menu|script|empty, id, client, script, schedule{network: iso_utc}, note}"""
+    g = gridmod.load_grid(brand)
+    if not g:
+        return []
+    bank = scriptmod.load_bank(brand)
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    limit = (now + datetime.timedelta(hours=min_lead_hours)).strftime('%Y-%m-%dT%H:%M:00Z')
+    min_days = int(g.get('min_days', 75))
+    items = []
+    for day in gridmod.plan(g, start, days, networks):
+        d = day['date']
+        sched = {n: t for n, t in day['schedule'].items() if t >= limit}
+        if not sched:
+            continue
+        it = {'date': d, 'kind': 'empty', 'id': None, 'client': None, 'script': None, 'schedule': sched, 'note': ''}
+        if day['special']:
+            s = scriptmod.by_id(bank, day['special'], gates)
+            if s:
+                it.update(kind='script', id=f'{s["id"]}-{d.isoformat()}', script=s)
+            else:
+                it['note'] = f'fecha especial «{day["special"]}» sin guion aprobado'
+        else:
+            notes = []
+            for pillar in day['pillars']:
+                if pillar == 'menu':
+                    if not clients:
+                        notes.append('menú: no hay restaurantes publicados')
+                        continue
+                    wk = gridmod.week_index(d)
+                    client = clients[wk % len(clients)]
+                    kind = menu_video.KINDS[(wk // len(clients)) % len(menu_video.KINDS)]
+                    it.update(kind='menu', id=f'menu-{client}-{kind}-{d.isoformat()}', client=client, note=kind)
+                    break
+                pool = scriptmod.pool(bank, pillar, gates)
+                i = gridmod.pick_index(d, len(pool), min_days)
+                if i is None:
+                    notes.append(f'{pillar}: sin guion disponible esta semana ({len(pool)} usables, ciclo de {gridmod.cycle_weeks(min_days)} semanas)')
+                    continue
+                s = pool[i]
+                it.update(kind='script', id=f'{s["id"]}-{d.isoformat()}', script=s)
+                break
+            if it['kind'] == 'empty':
+                it['note'] = '; '.join(notes)
+        items.append(it)
+    return items
+
+
+def run_week(start=None, days=7, deps=None, dry=False):
+    brand = os.environ.get('WORKER_BRAND', 'dinidine')
+    d = dict(deps or {})
+    start = start or (datetime.date.today() + datetime.timedelta(days=1))
+    try:
+        networks = {c['network'] for c in d.get('channels', load_channels)().get('channels', []) if c.get('enabled')}
+    except Exception as e:
+        log(f'[error] no pude leer los canales ({e})')
+        return 1
+    clients = []
+    if os.environ.get('WORKER_CLIENTS', '').strip():
+        raw = [c.strip() for c in os.environ['WORKER_CLIENTS'].split(',') if c.strip()]
+        try:
+            clients = d.get('list', list_clients)() if [c.lower() for c in raw] == ['all'] else raw
+        except Exception as e:
+            log(f'[aviso] no pude listar los restaurantes ({e}); esta semana sin video de menú')
+    items = resolve_week(brand, start, days, networks, clients, now=d.get('now'), gates=d.get('gates'))
+    log(f'Semana desde {start} · redes activas: {", ".join(sorted(networks)) or "ninguna"}')
+    cap = float(os.environ.get('WORKER_VOICE_USD_CAP', '1.00'))
+    spent, errors = 0.0, 0
+    for it in items:
+        day = it['date'].isoformat()
+        if it['kind'] == 'empty':
+            log(f'[skip] {day}: nada que publicar ({it["note"]})')
+            continue
+        if spent >= cap:
+            log(f'Tope de voz alcanzado (US$ {spent:.2f} de {cap:.2f}); lo que falta se hace en la próxima corrida.')
+            break
+        if it['kind'] == 'menu':
+            st, msg, cost = make_one(it['client'], it['note'], day, brand, dry, d, schedule=it['schedule'])
+        else:
+            job = scriptmod.build_job(it['script'], it['date'], brand, schedule=it['schedule'])
+            st, msg, cost = finish(day, job, d, dry)
+        spent += cost
+        errors += st == 'error'
+        log(f'[{st}] {day}: {msg}')
+    log(f'Voz estimada de esta corrida: US$ {spent:.2f}')
+    return 1 if errors else 0
+
+
+def show_plan(start, days, deps=None):
+    brand = os.environ.get('WORKER_BRAND', 'dinidine')
+    d = dict(deps or {})
+    try:
+        clients = d.get('list', list_clients)()
+    except Exception as e:
+        clients = []
+        log(f'(sin lista de restaurantes: {e})')
+    for it in resolve_week(brand, start, days, None, clients, now=d.get('now'), min_lead_hours=-24 * 365, gates=d.get('gates')):
+        what = it['client'] + ' · ' + it['note'] if it['kind'] == 'menu' else (it['script']['id'] if it['script'] else '— ' + it['note'])
+        nets = ', '.join(f'{n} {t[11:16]}Z' for n, t in sorted(it['schedule'].items()))
+        log(f'{it["date"]} {it["kind"]:6} {what}   [{nets}]')
 
 
 def run_all(seed=None, deps=None, dry=False):
@@ -166,9 +293,18 @@ if __name__ == '__main__':
     rn = sub.add_parser('run')
     rn.add_argument('--date')
     rn.add_argument('--dry', action='store_true')
+    pl = sub.add_parser('plan')
+    pl.add_argument('--date')
+    pl.add_argument('--days', type=int, default=14)
     a = ap.parse_args()
     if a.cmd == 'make':
         st, msg, _ = make_one(a.client, a.kind, a.date, os.environ.get('WORKER_BRAND', 'dinidine'), a.dry)
         log(f'[{st}] {msg}')
         sys.exit(1 if st == 'error' else 0)
+    if a.cmd == 'plan':
+        show_plan(datetime.date.fromisoformat(a.date) if a.date else datetime.date.today(), a.days)
+        sys.exit(0)
+    brand = os.environ.get('WORKER_BRAND', 'dinidine')
+    if os.environ.get('WORKER_MODE', 'grid') != 'legacy' and gridmod.load_grid(brand):
+        sys.exit(run_week(datetime.date.fromisoformat(a.date) if a.date else None, dry=a.dry))
     sys.exit(run_all(a.date, dry=a.dry))

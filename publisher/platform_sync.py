@@ -140,10 +140,18 @@ def build_payload(m, media_key, asset_hash, cfg, state, now):
     if not chans:
         raise SyncError(f'{m.get("id")}: no hay canales activos de la marca {m.get("brand")}')
     pubs = []
+    fixed = m.get('schedule') or {}   # {"instagram": "2026-11-10T17:00:00Z", ...} set by the weekly grid (no state needed)
+    if fixed:
+        chans = [c for c in chans if c['network'] in fixed]
+        if not chans:
+            raise SyncError(f'{m.get("id")}: ninguna red activa coincide con el horario fijado')
     for c in chans:
-        taken = state['slots'].setdefault(c['key'], [])
-        when = _utc_iso(next_slot(c, tz, now, taken))
-        taken.append(when)
+        if fixed:
+            when = fixed[c['network']]
+        else:
+            taken = state['slots'].setdefault(c['key'], [])
+            when = _utc_iso(next_slot(c, tz, now, taken))
+            taken.append(when)
         pub = {'channel_key': c['key'], 'scheduled_at': when}
         if titles.get(c['network']):
             pub['title'] = titles[c['network']]

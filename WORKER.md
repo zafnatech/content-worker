@@ -17,7 +17,10 @@ Each brand has `banned_phrases` (Brand Book "evitar"): a hit blocks the render (
 - Step 1: `cf/menu_video.py` (menu from the Agent API -> job; kinds `top3`, `estrella`; prices shown, never spoken) + tests.
 - Step 2: `worker.py` (`make`, `run`) -> render -> ElevenLabs voice -> Cloudinary -> panel as "needs review". Skips (never registers) a video with no consent / no voice. Per-run voice cap `WORKER_VOICE_USD_CAP`.
 - Env contract is in the `worker.py` docstring. Consent registry and channel list come from `CLIENTS_JSON` / `CHANNELS_JSON` env vars in the cloud.
-- KNOWN LIMIT before daily mode: slot state is a file lost between cloud runs. Fix = a platform endpoint that returns the already-scheduled slots + registered job keys (planned with `content_requests`).
+- WEEKLY GRID (9 Nov 2026): `worker.py run` plans the week ahead from `brands/<brand>/grid.json` (one pillar per weekday: Mon consejo, Tue menu of one restaurant, Wed producto, Thu agentes→objecion, Fri marca; special dates by day; `skip` days). Every post time is fixed from the date (`job.schedule`), so no slot state is needed between cloud runs (the old limit is gone for grid runs). Same date → same piece, same id, same times: reruns are idempotent (job_key).
+  - Script bank: `brands/<brand>/scripts.json`. A piece renders only if `approved` (or `WORKER_BANK_APPROVED=1`) and its `needs` gates are open (`WORKER_UNLOCK=tv,agents`). 75-day rule: a pillar walks its bank on an 11-week cycle (`ceil(75/7)`); a bank with fewer than 11 usable pieces leaves some weeks empty instead of repeating early.
+  - `worker.py plan [--date D] [--days N]` prints the calendar with no cost. `WORKER_MODE=legacy` returns to "a menu video per client per run".
+  - Suggested Render cron: `0 11 * * 6` (Saturday 6am ET) → plans Sunday..Saturday; times closer than 6 h are dropped.
 
 - DECISION 8 Nov 2026 (Jonathan): no restaurant permission is asked for menu videos. `WORKER_REQUIRE_CONSENT=1` restores the clients.json gate. Each video still needs his approval in the panel.
 

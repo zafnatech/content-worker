@@ -97,7 +97,8 @@ def run(job_path, preview=None, draft=False, out_dir=None, force_voice_pending=T
                 'duration_s': round(total, 1), 'voice': 'real' if not pending else 'PENDIENTE (sin voz en escenas: ' + ', '.join(s.id for s in pending) + ')',
                 'caption': job.get('caption', ''), 'hashtags': job.get('hashtags', []), 'cta': job.get('cta_text', ''),
                 'captions': job.get('captions', {}), 'titles': job.get('titles', {}), 'ai_disclosure': job.get('ai_disclosure', True),
-                'verify_before_publish': job.get('verify', []), 'file': mp4}
+                'verify_before_publish': job.get('verify', []), 'schedule': job.get('schedule'), 'lineage': job.get('lineage'),
+                'file': mp4}
     with open(os.path.join(out_dir, f'{jid}.json'), 'w', encoding='utf-8') as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
     print(f'[{jid}] OK {mp4} {total:.1f}s')
