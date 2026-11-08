@@ -1,0 +1,67 @@
+{
+  "id": "dinidine",
+  "name": "DiniDine",
+  "palette": {
+    "bg": [
+      251,
+      247,
+      238
+    ],
+    "ink": [
+      65,
+      38,
+      24
+    ],
+    "accent": [
+      234,
+      163,
+      46
+    ],
+    "white": [
+      255,
+      255,
+      255
+    ],
+    "ok": [
+      46,
+      125,
+      50
+    ]
+  },
+  "fonts": {
+    "display": "Outfit-800.ttf",
+    "body": "Outfit-700.ttf",
+    "soft": "Outfit-600.ttf",
+    "condensed": "Bebas.ttf"
+  },
+  "logo": "assets/logo.png",
+  "logo_crop": [
+    60,
+    100,
+    1160,
+    500
+  ],
+  "logo_white_bg": true,
+  "mascot": "assets/dini.png",
+  "subtitle_highlight": [
+    "$",
+    "USB",
+    "Wi-Fi",
+    "WhatsApp",
+    "gratis"
+  ],
+  "music": {
+    "bpm": 88
+  },
+  "voice": {
+    "voice_name": "DiniDine Voice",
+    "tag": "[fast-paced, warm and confident]",
+    "stability": 0.5,
+    "similarity": 0.75,
+    "atempo": 1.15,
+    "pronounce": {
+      "DiniDine": "Dini Dáin",
+      "Wi-Fi": "uai-fai"
+    }
+  }
+}

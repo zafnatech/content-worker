@@ -1,0 +1,28 @@
+{
+  "id": "prueba-hola-dini",
+  "brand": "dinidine",
+  "template": "tutorial",
+  "caption": "Hola, soy Dini, la abeja de DiniDine. Estoy aprendiendo a hablar en video. Pronto vas a verme por aquí con consejos para tu restaurante. Síguenos y dale like para no perderte de nada.",
+  "hashtags": [
+    "DiniDine",
+    "restaurantes"
+  ],
+  "cta_text": "Síguenos y dale like para no perderte de nada",
+  "verify": [
+    "Video de prueba de la conexión con Instagram: revísalo antes de aprobar."
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Hola",
+      "title": "Soy **Dini**, la abeja de DiniDine.",
+      "speak": "Hola, soy Dini, la abeja de DiniDine."
+    },
+    {
+      "type": "outro",
+      "title": "Pronto vas a verme por aquí.",
+      "cta": "Síguenos y dale like",
+      "speak": "Pronto vas a verme por aquí con consejos para tu restaurante. Síguenos y dale like para no perderte de nada."
+    }
+  ]
+}

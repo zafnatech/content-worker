@@ -1,0 +1,16 @@
+{
+  "_nota": "Copia este archivo a channels.json. integration_id sale de: python3 publish.py integrations. Los ids no son secretos, pero channels.json no se sube a git.",
+  "timezone": "America/New_York",
+  "approval": "if_verify",
+  "_approval": "if_verify = el video espera tu aprobación solo si su job tiene items en 'verify'. always = todo espera aprobación. never = automático total (no recomendado al inicio).",
+  "channels": [
+    { "key": "dinidine-instagram", "brand": "dinidine", "network": "instagram", "integration_id": "", "enabled": false, "daily_cap": 2, "slots": ["12:30", "19:00"] },
+    { "key": "dinidine-facebook",  "brand": "dinidine", "network": "facebook",  "integration_id": "", "enabled": false, "daily_cap": 2, "slots": ["12:45", "19:15"] },
+    { "key": "dinidine-tiktok",    "brand": "dinidine", "network": "tiktok",    "integration_id": "", "enabled": false, "daily_cap": 2, "slots": ["13:00", "20:00"],
+      "settings": { "privacy_level": "SELF_ONLY" },
+      "_nota": "TikTok sin auditoría de la app SOLO permite SELF_ONLY (privado). Cuando TikTok apruebe la app, cambia a PUBLIC_TO_EVERYONE." },
+    { "key": "dinidine-youtube",   "brand": "dinidine", "network": "youtube",   "integration_id": "", "enabled": false, "daily_cap": 1, "slots": ["14:00"],
+      "settings": { "type": "private" },
+      "_nota": "YouTube con proyecto de API sin verificar deja los videos privados. Con Postiz Cloud o tras la verificación, cambia a public." }
+  ]
+}

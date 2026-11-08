@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+out/
+build/
+voz/
+clients/*/
+clients.json
+channels.json
+publish.db
+__pycache__/
+*.bak*
+.DS_Store

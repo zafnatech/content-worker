@@ -1,0 +1,3 @@
+{"id":"_demo-captura","brand":"dinidine","caption":"","scenes":[
+ {"type":"step","n":1,"title":"Así se ve **tu menú** en el celular","speak":"Así se ve un menú digital en el celular de tu cliente.",
+  "visual":{"kind":"phone","screen":"clip","path":"build/demo-menu.mp4","header":"x"}}]}

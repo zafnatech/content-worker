@@ -1,0 +1,119 @@
+{
+  "id": "whatsapp-business-tutorial",
+  "brand": "dinidine",
+  "template": "tutorial",
+  "caption": "¿Tus clientes te escriben por WhatsApp? Esto es lo que necesitas para que tu restaurante se vea profesional desde el primer mensaje. Guárdalo para cuando lo configures. Si tienes dudas, escríbenos.",
+  "hashtags": [
+    "#restaurantes",
+    "#WhatsAppBusiness",
+    "#negociolatino",
+    "#Gwinnett"
+  ],
+  "cta_text": "Escríbenos si tienes dudas",
+  "verify": [
+    "Confirma en la app los nombres exactos de las funciones (mensaje de bienvenida, mensaje de ausencia, respuestas rápidas, catálogo) antes de publicar.",
+    "Las pantallas del teléfono son ilustración genérica, no capturas de la app."
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Tutorial rápido",
+      "title": "¿Tus clientes te escriben por **WhatsApp**? Hazlo bien.",
+      "speak": "¿Tus clientes te escriben por WhatsApp? Entonces tu restaurante necesita WhatsApp Business."
+    },
+    {
+      "type": "step",
+      "title": "¿Por qué **importa**?",
+      "speak": "Es gratis, separa tu negocio de tu número personal, y le muestra a tus clientes quién eres: horario, dirección y descripción.",
+      "points": [
+        "La app es **gratis**",
+        "Separa tu negocio de tu número personal",
+        "Muestra horario, dirección y descripción"
+      ]
+    },
+    {
+      "type": "step",
+      "n": 1,
+      "title": "Descarga la app **WhatsApp Business**",
+      "speak": "Uno: descarga la app WhatsApp Business y registra el número de tu restaurante.",
+      "points": [
+        "Descarga **WhatsApp Business**",
+        "Usa el número de tu restaurante",
+        "Verifica con el código que te llega"
+      ]
+    },
+    {
+      "type": "step",
+      "n": 2,
+      "title": "Crea tu **perfil**",
+      "speak": "Dos: crea tu perfil con el nombre, la categoría, el horario, la dirección y una descripción corta.",
+      "visual": {
+        "kind": "phone",
+        "screen": "profile",
+        "header": "Tu restaurante",
+        "sub": "Perfil del negocio",
+        "fields": [
+          [
+            "Nombre",
+            "Tu restaurante"
+          ],
+          [
+            "Categoría",
+            "Restaurante"
+          ],
+          [
+            "Horario",
+            "Días y horas"
+          ],
+          [
+            "Dirección",
+            "Tu dirección"
+          ],
+          [
+            "Descripción",
+            "Una frase sobre ti"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "step",
+      "n": 3,
+      "title": "Responde aunque estés **ocupado**",
+      "speak": "Tres: activa un mensaje de bienvenida y un mensaje de ausencia, para que tu cliente siempre reciba respuesta.",
+      "visual": {
+        "kind": "phone",
+        "screen": "chat",
+        "header": "Tu restaurante",
+        "sub": "Mensajes",
+        "messages": [
+          {
+            "from": "cliente",
+            "text": "Hola, ¿a qué hora abren?"
+          },
+          {
+            "from": "negocio",
+            "text": "¡Hola! Gracias por escribirnos. En un momento te atendemos."
+          }
+        ]
+      }
+    },
+    {
+      "type": "step",
+      "n": 4,
+      "title": "Ahorra tiempo con **respuestas rápidas**",
+      "speak": "Cuatro: guarda respuestas rápidas para lo que te preguntan siempre, y agrega tu catálogo.",
+      "points": [
+        "Respuestas rápidas para lo de siempre",
+        "Horario y dirección en un toque",
+        "Agrega tu **catálogo**"
+      ]
+    },
+    {
+      "type": "outro",
+      "title": "Guárdalo para cuando lo configures.",
+      "cta": "Escríbenos si tienes dudas",
+      "speak": "Guárdalo para cuando lo configures. Y si tienes dudas, escríbenos."
+    }
+  ]
+}
