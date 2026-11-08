@@ -53,7 +53,9 @@ def list_clients():
 
 
 def render_job(job, out_dir):
-    import factory
+    """Renders in a child process: its memory (~300 MB per video) is freed after every video, so three in a row
+    never pile up (the 512 MB Render plan ran out of memory when it rendered in-process)."""
+    import subprocess
     os.makedirs('jobs/_worker', exist_ok=True)
     path = os.path.join('jobs', '_worker', job['id'] + '.json')
     with open(path, 'w', encoding='utf-8') as f:
@@ -61,10 +63,13 @@ def render_job(job, out_dir):
     hits = guardrails.check(job)
     if hits:
         raise RuntimeError('bloqueado por las reglas de la marca: ' + ', '.join(hits))
-    code = factory.run(path, out_dir=out_dir)
+    proc = subprocess.run([sys.executable, 'factory.py', path, '--out-dir', out_dir], capture_output=True, text=True)
+    for line in (proc.stdout or '').strip().splitlines()[-6:]:
+        log('  ' + line)
     manifest = os.path.join(out_dir, job['id'] + '.json')
-    if code != 0 or not os.path.exists(manifest):
-        raise RuntimeError(f'render terminó con código {code}')
+    if proc.returncode != 0 or not os.path.exists(manifest):
+        err = (proc.stderr or '').strip().splitlines()[-1:] or ['']
+        raise RuntimeError(f'render terminó con código {proc.returncode} {err[0][:160]}')
     with open(manifest, encoding='utf-8') as f:
         return manifest, json.load(f)
 
