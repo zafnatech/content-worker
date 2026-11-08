@@ -39,12 +39,17 @@ class MenuVideo(unittest.TestCase):
         self.assertEqual(a, mv.pick_dishes(PAYLOAD['menu'], 3, '2026-11-08'))
 
     def test_top3_job(self):
-        job = mv.build_job(PAYLOAD, '2026-11-08', 'top3', client='maya')
+        job = mv.build_job(PAYLOAD, '2026-11-08', 'top3', client='maya', require_consent=True)
         self.assertEqual(job['id'], 'menu-maya-top3-2026-11-08')
         self.assertRegex(job['id'], r'^[a-z0-9][a-z0-9_-]{1,80}$')
         self.assertEqual([s['type'] for s in job['scenes']], ['hook', 'step', 'outro'])
         self.assertEqual(len(job['scenes'][1]['points']), 3)
         self.assertEqual(job['client'], 'maya')
+
+    def test_no_consent_needed_by_default(self):
+        job = mv.build_job(PAYLOAD, '2026-11-08', 'top3', client='maya')
+        self.assertIsNone(job['client'])
+        self.assertIn('revisa que los precios', job['verify'][0])
 
     def test_prices_are_shown_never_spoken(self):
         job = mv.build_job(PAYLOAD, '2026-11-08', 'top3')

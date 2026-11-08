@@ -19,6 +19,8 @@ Each brand has `banned_phrases` (Brand Book "evitar"): a hit blocks the render (
 - Env contract is in the `worker.py` docstring. Consent registry and channel list come from `CLIENTS_JSON` / `CHANNELS_JSON` env vars in the cloud.
 - KNOWN LIMIT before daily mode: slot state is a file lost between cloud runs. Fix = a platform endpoint that returns the already-scheduled slots + registered job keys (planned with `content_requests`).
 
+- DECISION 8 Nov 2026 (Jonathan): no restaurant permission is asked for menu videos. `WORKER_REQUIRE_CONSENT=1` restores the clients.json gate. Each video still needs his approval in the panel.
+
 ## Plan (each step is its own commit; nothing publishes without approval in the panel)
 1. Menu -> video template: takes a business menu and builds the job JSON.
 2. `worker.py`: picks up video requests, renders, adds the voice (ElevenLabs), uploads to Cloudinary, registers in the panel as "needs review".

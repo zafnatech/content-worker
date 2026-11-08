@@ -5,7 +5,9 @@ Rules baked in (Brand Book + project rules):
 - Only real data from the menu. No invented figures, no testimonials, no promised results.
 - Prices are shown on screen, never spoken (TTS mangles them).
 - DiniDine does not announce native ordering: the video only shows the digital menu.
-- A restaurant's own data in a published video needs video_consent (factory.consent_ok checks clients.json).
+- Jonathan decided (8 Nov 2026) not to ask restaurants for permission: by default the job carries no `client`, so the
+  clients.json consent gate does not apply. `require_consent=True` (env WORKER_REQUIRE_CONSENT=1) brings it back.
+  Every video still waits for his approval in the panel, and a verify note reminds him whose name/prices it shows.
 """
 import re
 import hashlib
@@ -55,7 +57,7 @@ def _short(name, n=38):
     return name if len(name) <= n else name[:n - 1].rstrip() + '…'
 
 
-def build_job(payload, seed, kind='top3', brand='dinidine', client=None):
+def build_job(payload, seed, kind='top3', brand='dinidine', client=None, require_consent=False):
     """payload = the Agent API menu response. Returns the job dict, or None when the menu is too thin for a video."""
     if kind not in KINDS:
         raise ValueError(f'kind must be one of {KINDS}')
@@ -90,12 +92,14 @@ def build_job(payload, seed, kind='top3', brand='dinidine', client=None):
                    'cta': 'Escríbenos para verlo en tu restaurante',
                    'speak': 'Tu menú, claro y en el celular de tus clientes. Escríbenos y lo vemos en tu restaurante.'})
     return {
-        'id': jid, 'brand': brand, 'template': 'menu', 'client': client, 'title': title,
+        'id': jid, 'brand': brand, 'template': 'menu', 'client': client if require_consent else None, 'title': title,
         'caption': f'Así se ve el menú digital de {name}. Platos y precios claros, sin menú impreso. '
                    'Si quieres ver cómo quedaría el tuyo, escríbenos.',
         'hashtags': ['#restaurantes', '#menudigital', '#negociolatino', '#Gwinnett'],
         'cta_text': 'Escríbenos para verlo en tu restaurante',
-        'verify': [f'Confirma que {name} sigue de acuerdo en aparecer en el video y que los precios están vigentes.',
+        'verify': ([f'Confirma que {name} sigue de acuerdo en aparecer en el video y que los precios están vigentes.']
+                   if require_consent else
+                   [f'Sale el nombre y el menú de {name}: revisa que los precios estén vigentes antes de aprobar.']) + [
                    f'Menú leído de la plataforma el {seed}.'],
         'scenes': scenes,
     }

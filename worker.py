@@ -11,7 +11,7 @@ Env (host dashboard only, never git/chat):
   CLOUDINARY_CLOUD_NAME, CLOUDINARY_UPLOAD_PRESET
   CONTENT_INGEST_URL, CONTENT_INGEST_TOKEN
   CHANNELS_JSON   {"timezone":"America/New_York","channels":[{key,network,brand,integration_id,enabled,daily_cap,slots}]}
-  CLIENTS_JSON    {"maya":{"video_consent":true,"consent_date":"2026-11-01"}}   (restaurants that allowed video)
+  CLIENTS_JSON    only if WORKER_REQUIRE_CONSENT=1 (default 0: no restaurant permission needed, Jonathan's decision 8 Nov)
   WORKER_CLIENTS  comma list of client slugs;  WORKER_BRAND (default dinidine);  WORKER_VOICE_USD_CAP (default 1.00 per run)
 Known limit (next platform change): slot state lives in out/.platform-sync.json, which is lost between cloud runs.
 """
@@ -82,7 +82,8 @@ def make_one(client, kind, seed, brand='dinidine', dry=False, deps=None):
         payload = d['menu'](client)
     except Exception as e:
         return 'error', f'{client}: no pude leer el menú ({e})', 0.0
-    job = menu_video.build_job(payload, seed, kind, brand=brand, client=client)
+    job = menu_video.build_job(payload, seed, kind, brand=brand, client=client,
+                               require_consent=os.environ.get('WORKER_REQUIRE_CONSENT', '0') == '1')
     if job is None:
         return 'skip', f'{client}: el menú tiene muy pocos platos con precio para "{kind}"', 0.0
     out_dir = os.path.join('out', seed)
