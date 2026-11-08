@@ -12,7 +12,7 @@ Env (host dashboard only, never git/chat):
   CONTENT_INGEST_URL, CONTENT_INGEST_TOKEN
   CHANNELS_JSON   {"timezone":"America/New_York","channels":[{key,network,brand,integration_id,enabled,daily_cap,slots}]}
   CLIENTS_JSON    only if WORKER_REQUIRE_CONSENT=1 (default 0: no restaurant permission needed, Jonathan's decision 8 Nov)
-  WORKER_CLIENTS  comma list of client slugs;  WORKER_BRAND (default dinidine);  WORKER_VOICE_USD_CAP (default 1.00 per run)
+  WORKER_CLIENTS  `all` = every published restaurant of the brand (rotating, WORKER_MAX_PER_RUN per run, default 3), or a comma list of slugs;  WORKER_BRAND (default dinidine);  WORKER_VOICE_USD_CAP (default 1.00 per run)
 Known limit (next platform change): slot state lives in out/.platform-sync.json, which is lost between cloud runs.
 """
 import os
@@ -40,6 +40,16 @@ def fetch_menu(client):
         return platform.get(f'/businesses/{client}/menu')
     except SystemExit as e:
         raise RuntimeError(str(e))
+
+
+def list_clients():
+    """Slugs of every published business of the brand behind the API key (WORKER_CLIENTS=all)."""
+    from connectors import platform
+    try:
+        data = platform.get('/businesses')
+    except SystemExit as e:
+        raise RuntimeError(str(e))
+    return sorted(b['slug'] for b in data.get('businesses', []) if b.get('published') and b.get('slug'))
 
 
 def render_job(job, out_dir):
@@ -109,13 +119,28 @@ def run_all(seed=None, deps=None, dry=False):
     if not clients:
         log('WORKER_CLIENTS está vacío: no hay nada que hacer.')
         return 0
+    day = datetime.date.fromisoformat(seed).toordinal()
+    if [c.lower() for c in clients] == ['all']:
+        try:
+            clients = (deps or {}).get('list', list_clients)()
+        except Exception as e:
+            log(f'[error] no pude listar los restaurantes ({e})')
+            return 1
+        if not clients:
+            log('No hay restaurantes publicados en la marca: nada que hacer.')
+            return 0
+        # Each run covers at most WORKER_MAX_PER_RUN restaurants; the window moves every day so all get a turn.
+        mx = max(1, int(os.environ.get('WORKER_MAX_PER_RUN', '3')))
+        start = (day * mx) % len(clients)
+        clients = [clients[(start + i) % len(clients)] for i in range(min(mx, len(clients)))]
+        log(f'Hoy toca: {", ".join(clients)}')
     cap = float(os.environ.get('WORKER_VOICE_USD_CAP', '1.00'))
     kinds, spent, errors = menu_video.KINDS, 0.0, 0
     for i, c in enumerate(clients):
         if spent >= cap:
             log(f'Tope de voz por corrida alcanzado (US$ {spent:.2f} de {cap:.2f}); el resto sigue mañana.')
             break
-        kind = kinds[(datetime.date.fromisoformat(seed).toordinal() + i) % len(kinds)]
+        kind = kinds[(day + i) % len(kinds)]
         status, msg, cost = make_one(c, kind, seed, brand, dry, deps)
         spent += cost
         errors += status == 'error'
