@@ -1,0 +1,59 @@
+{
+ "id": "rugifit",
+ "name": "RugiFit",
+ "palette": {
+  "bg": [
+   249,
+   238,
+   231
+  ],
+  "ink": [
+   86,
+   39,
+   20
+  ],
+  "accent": [
+   195,
+   80,
+   14
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "León",
+  "sector": "Entrenadores",
+  "language": "es",
+  "public_status": "Disponible",
+  "positioning": "Software para entrenadores personales y sus negocios.",
+  "honest_message": "Enseñar el uso real del producto con una demo comprobada y mensajes para entrenadores, no para consumidores de gimnasio.",
+  "canonical_traits": "León de melena compacta cobriza, mirada abierta y sonrisa accesible. La fuerza se expresa con seguridad, no agresividad.",
+  "voice_style": "Motivadora y humana, sin gritos ni promesas físicas.",
+  "avoid": "Gorila o toro; ojos entrecerrados de la versión rechazada; resultados de salud o forma física garantizados.",
+  "sample_line_not_approved": "Entrena a tus clientes sin perder el rumbo.",
+  "landing": "https://rugifit.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}

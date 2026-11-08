@@ -1,0 +1,59 @@
+{
+ "id": "robiferre",
+ "name": "RobiFerre",
+ "palette": {
+  "bg": [
+   244,
+   239,
+   234
+  ],
+  "ink": [
+   71,
+   42,
+   20
+  ],
+  "accent": [
+   142,
+   93,
+   50
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "Castor",
+  "sector": "Ferreterías",
+  "language": "es",
+  "public_status": "En desarrollo",
+  "positioning": "Software para dueños y administradores de ferreterías.",
+  "honest_message": "Mostrar problemas de catálogo, consulta y atención como casos ilustrativos hasta validar el producto.",
+  "canonical_traits": "Incisivos visibles, cola ancha de castor y pelaje marrón; evitar que la simplificación lo convierta en oso.",
+  "voice_style": "Experta en el oficio, directa y colaborativa.",
+  "avoid": "Atribuir inventario, POS o cotizaciones automáticas al software sin prueba.",
+  "sample_line_not_approved": "Tu ferretería, más fácil de consultar.",
+  "landing": "https://robiferre.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}

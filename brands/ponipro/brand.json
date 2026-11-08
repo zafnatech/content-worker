@@ -1,0 +1,59 @@
+{
+ "id": "ponipro",
+ "name": "PoniPro",
+ "palette": {
+  "bg": [
+   236,
+   241,
+   243
+  ],
+  "ink": [
+   22,
+   51,
+   65
+  ],
+  "accent": [
+   70,
+   115,
+   135
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "Caballo de tiro",
+  "sector": "Servicios del hogar",
+  "language": "es",
+  "public_status": "Piloto",
+  "positioning": "Software para pintores, constructores, contratistas y técnicos del hogar.",
+  "honest_message": "Presentar el piloto y situaciones de trabajo reales. Pedir interés en el piloto, sin anunciar disponibilidad general.",
+  "canonical_traits": "Caballo azul robusto, marca blanca facial, patas blancas, crin/cola navy cortas y pañoleta naranja de seguridad #E8772E.",
+  "voice_style": "Amable, trabajadora y confiable; lenguaje de contratistas.",
+  "avoid": "Versión gris, caballo azul antiguo de crin larga, herramientas incrustadas en el logo o fingir funciones activas.",
+  "sample_line_not_approved": "Organiza el trabajo que mueve tu negocio.",
+  "landing": "https://ponipro.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}

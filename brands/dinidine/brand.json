@@ -1,67 +1,81 @@
 {
-  "id": "dinidine",
-  "name": "DiniDine",
-  "palette": {
-    "bg": [
-      251,
-      247,
-      238
-    ],
-    "ink": [
-      65,
-      38,
-      24
-    ],
-    "accent": [
-      234,
-      163,
-      46
-    ],
-    "white": [
-      255,
-      255,
-      255
-    ],
-    "ok": [
-      46,
-      125,
-      50
-    ]
-  },
-  "fonts": {
-    "display": "Outfit-800.ttf",
-    "body": "Outfit-700.ttf",
-    "soft": "Outfit-600.ttf",
-    "condensed": "Bebas.ttf"
-  },
-  "logo": "assets/logo.png",
-  "logo_crop": [
-    60,
-    100,
-    1160,
-    500
+ "id": "dinidine",
+ "name": "DiniDine",
+ "palette": {
+  "bg": [
+   251,
+   247,
+   238
   ],
-  "logo_white_bg": true,
-  "mascot": "assets/dini.png",
-  "subtitle_highlight": [
-    "$",
-    "USB",
-    "Wi-Fi",
-    "WhatsApp",
-    "gratis"
+  "ink": [
+   65,
+   38,
+   24
   ],
-  "music": {
-    "bpm": 88
-  },
-  "voice": {
-    "voice_name": "DiniDine Voice",
-    "tag": "[fast-paced, warm and confident]",
-    "stability": 0.5,
-    "similarity": 0.75,
-    "atempo": 1.15,
-    "pronounce": {
-      "DiniDine": "Dini Dáin",
-      "Wi-Fi": "uai-fai"
-    }
+  "accent": [
+   234,
+   163,
+   46
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "logo": "assets/logo.png",
+ "logo_crop": [
+  60,
+  100,
+  1160,
+  500
+ ],
+ "logo_white_bg": true,
+ "mascot": "assets/dini.png",
+ "subtitle_highlight": [
+  "$",
+  "USB",
+  "Wi-Fi",
+  "WhatsApp",
+  "gratis"
+ ],
+ "music": {
+  "bpm": 88
+ },
+ "voice": {
+  "voice_name": "DiniDine Voice",
+  "tag": "[fast-paced, warm and confident]",
+  "stability": 0.5,
+  "similarity": 0.75,
+  "atempo": 1.15,
+  "pronounce": {
+   "DiniDine": "Dini Dáin",
+   "Wi-Fi": "uai-fai"
   }
+ },
+ "guardrails": {
+  "animal": "Abeja",
+  "sector": "Restaurantes",
+  "language": "es",
+  "public_status": "Disponible",
+  "positioning": "Software para dueños y administradores de restaurantes.",
+  "honest_message": "Explicar el menú digital y el recorrido real de la demo. La función de pedido hoy enlaza a plataformas externas; no anunciar pedidos nativos.",
+  "canonical_traits": "Antenas curvas, rostro dorado, dos pares de alas y abdomen rayado. Anatomía de abeja coherente; las patas pueden quedar ocultas por la pose.",
+  "voice_style": "Cercana y práctica. Mostrar un problema concreto del restaurante y un paso que el dueño puede comprobar.",
+  "avoid": "Gorro de chef o cubiertos pegados al logo; promesas de ventas o automatización no verificadas.",
+  "sample_line_not_approved": "Tu menú, listo para compartir.",
+  "landing": "https://dinidine.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
 }

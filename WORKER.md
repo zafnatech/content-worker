@@ -7,6 +7,11 @@ Source: the Mac project `content-factory` (copied 7 Nov 2026, without secrets, c
 - Renderer runs in the cloud: a 9 s test video renders in ~17 s (measured), so 30 videos a day is ~30 min of compute a month-end-to-end.
 - Needs only Python 3.12, Pillow, numpy, ffmpeg. See `Dockerfile`.
 
+## Brands
+`brands/<slug>/` holds brand.json (palette, fonts, voice, `guardrails` from the Brand Book: status, language, honest message, avoid) + mascot + logo.
+Built from the 7 Nov 2026 brand book with `python3 tools/import_brandbook.py <folder>`. Palettes of the 9 new brands are PROVISIONAL (from the brief),
+voices (ElevenLabs) are not assigned yet, and only DiniDine has an approved look and voice. Mother brand Zafnatech: pending (vector logo, Space Grotesk font).
+
 ## Plan (each step is its own commit; nothing publishes without approval in the panel)
 1. Menu -> video template: takes a business menu and builds the job JSON.
 2. `worker.py`: picks up video requests, renders, adds the voice (ElevenLabs), uploads to Cloudinary, registers in the panel as "needs review".

@@ -1,0 +1,59 @@
+{
+ "id": "lanidental",
+ "name": "LaniDental",
+ "palette": {
+  "bg": [
+   233,
+   241,
+   241
+  ],
+  "ink": [
+   18,
+   63,
+   68
+  ],
+  "accent": [
+   34,
+   118,
+   115
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "Oveja",
+  "sector": "Consultorios odontológicos",
+  "language": "es",
+  "public_status": "En desarrollo",
+  "positioning": "Software administrativo para consultorios odontológicos.",
+  "honest_message": "Comunicar organización del consultorio y experiencia de agenda; separar gestión de decisiones clínicas.",
+  "canonical_traits": "Lana marfil, rostro gris cálido y sonrisa visible. El logo seleccionado usa sonrisa limpia, sin brillo dental.",
+  "voice_style": "Tranquila, clara y confiable.",
+  "avoid": "Lana azul, destello en el diente, diagnósticos, resultados clínicos o historias de pacientes no autorizadas.",
+  "sample_line_not_approved": "Una agenda más clara para tu consultorio.",
+  "landing": "https://lanidental.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}

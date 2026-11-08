@@ -1,0 +1,59 @@
+{
+ "id": "fifispa",
+ "name": "FifiSpa",
+ "palette": {
+  "bg": [
+   247,
+   239,
+   242
+  ],
+  "ink": [
+   85,
+   42,
+   55
+  ],
+  "accent": [
+   172,
+   94,
+   123
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "Perrita",
+  "sector": "Grooming de mascotas",
+  "language": "es",
+  "public_status": "En desarrollo",
+  "positioning": "Software para peluquerías y spas de mascotas.",
+  "honest_message": "Hablar de agenda y experiencia de atención como oportunidades; verificar funciones antes de prometerlas.",
+  "canonical_traits": "Orejas largas, pelaje vino y blanco, mancha del ojo izquierdo anatómico. Conservar la orientación.",
+  "voice_style": "Cariñosa y profesional, dirigida al negocio.",
+  "avoid": "Espejar el personaje, poner tijeras en el símbolo o comunicar servicios veterinarios.",
+  "sample_line_not_approved": "Más orden para cuidar cada cita.",
+  "landing": "https://fifispa.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}

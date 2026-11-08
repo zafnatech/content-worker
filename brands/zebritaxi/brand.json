@@ -1,0 +1,59 @@
+{
+ "id": "zebritaxi",
+ "name": "ZebriTaxi",
+ "palette": {
+  "bg": [
+   253,
+   247,
+   234
+  ],
+  "ink": [
+   38,
+   44,
+   49
+  ],
+  "accent": [
+   238,
+   175,
+   44
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "Cebra",
+  "sector": "Taxis",
+  "language": "es",
+  "public_status": "En desarrollo",
+  "positioning": "Software para el sector taxi; comprador exacto aún por definir.",
+  "honest_message": "Mantener el mensaje en el negocio de taxis hasta validar si compra un operador, una flota o un conductor.",
+  "canonical_traits": "Patrón blanco/negro, crin amarilla y una franja amarilla en el lado anatómico derecho del cuello; no espejar.",
+  "voice_style": "Segura, ágil y concreta.",
+  "avoid": "Añadir más amarillo a costa de perder la cebra; mostrar teléfono durante la conducción o prometer despacho sin prueba.",
+  "sample_line_not_approved": "El negocio del taxi, mejor organizado.",
+  "landing": "https://zebritaxi.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "id": "fadimart",
+ "name": "FadiMart",
+ "palette": {
+  "bg": [
+   252,
+   245,
+   234
+  ],
+  "ink": [
+   41,
+   44,
+   37
+  ],
+  "accent": [
+   224,
+   157,
+   43
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "Guepardo",
+  "sector": "Convenience stores",
+  "language": "en",
+  "public_status": "En desarrollo",
+  "positioning": "Software for US convenience-store owners, including stores at gas stations.",
+  "honest_message": "Use plain English for store owners. Validate the actual workflow before advertising delivery, POS, fuel or payment features.",
+  "canonical_traits": "Cheetah spots and dark tear marks from eyes to muzzle; agile silhouette without fuel accessories.",
+  "voice_style": "Direct, useful and respectful of diverse family businesses.",
+  "avoid": "Cultural stereotypes; claims about fuel pumps, lottery, alcohol or tobacco compliance without verification.",
+  "sample_line_not_approved": "Keep your store moving.",
+  "landing": "https://fadimart.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}

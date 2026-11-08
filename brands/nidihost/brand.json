@@ -1,0 +1,59 @@
+{
+ "id": "nidihost",
+ "name": "NidiHost",
+ "palette": {
+  "bg": [
+   238,
+   240,
+   246
+  ],
+  "ink": [
+   39,
+   54,
+   86
+  ],
+  "accent": [
+   90,
+   104,
+   163
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "Golondrina",
+  "sector": "Alojamientos",
+  "language": "es",
+  "public_status": "En desarrollo",
+  "positioning": "Software para propietarios y gestores de alojamientos.",
+  "honest_message": "Hablar de la idea de una experiencia de hospedaje ordenada; distinguir la visión del producto de las funciones activas.",
+  "canonical_traits": "Plumaje azul, pecho claro, silueta de golondrina y cola bifurcada compacta; la cabeza debe reconocerse sin mostrar la cola.",
+  "voice_style": "Hospitalaria, serena y resolutiva. Explicar el recorrido del anfitrión con precisión.",
+  "avoid": "Añadir un nido al símbolo o anunciar reservas, pagos e integraciones como activos sin prueba.",
+  "sample_line_not_approved": "Recibe a cada huésped con calma.",
+  "landing": "https://nidihost.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}

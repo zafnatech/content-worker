@@ -1,0 +1,59 @@
+{
+ "id": "bunzimarket",
+ "name": "BunziMarket",
+ "palette": {
+  "bg": [
+   237,
+   242,
+   237
+  ],
+  "ink": [
+   30,
+   55,
+   41
+  ],
+  "accent": [
+   75,
+   124,
+   73
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   46,
+   125,
+   50
+  ]
+ },
+ "palette_status": "provisional: from the brief; normalise against the approved logo",
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "music": {
+  "bpm": 88
+ },
+ "voice": {},
+ "mascot": "assets/mascot.png",
+ "logo": "assets/logo.png",
+ "logo_white_bg": true,
+ "guardrails": {
+  "animal": "Hormiga",
+  "sector": "Vendedores independientes",
+  "language": "es",
+  "public_status": "En desarrollo",
+  "positioning": "Catálogo digital para vender ropa, lociones o productos por WhatsApp con poco inventario.",
+  "honest_message": "Priorizar el link compartible y la claridad de un catálogo pequeño como propuesta, sin confundirlo con un minimercado.",
+  "canonical_traits": "Hormiga verde de seis patas, antenas con puntas de hoja, sin alas. Diferente de la abeja de DiniDine.",
+  "voice_style": "Emprendedora, sencilla y orientada a la venta cotidiana.",
+  "avoid": "Gas stations, supermercados o módulos complejos de inventario asumidos.",
+  "sample_line_not_approved": "Tu catálogo viaja contigo.",
+  "landing": "https://bunzimarket.com",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ }
+}
