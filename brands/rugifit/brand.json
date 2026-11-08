@@ -55,5 +55,18 @@
   "sample_line_not_approved": "Entrena a tus clientes sin perder el rumbo.",
   "landing": "https://rugifit.com",
   "source": "Zafnatech Brand Book 2026-11-07"
- }
+ },
+ "banned_phrases": [
+  "100% automático",
+  "aumenta tus ventas",
+  "baja de peso",
+  "cuerpo ideal",
+  "duplica tus ventas",
+  "garantizado",
+  "garantizamos",
+  "pierde peso",
+  "resultados de salud",
+  "resultados garantizados",
+  "sube tus ventas"
+ ]
 }

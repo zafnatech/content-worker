@@ -55,5 +55,17 @@
   "sample_line_not_approved": "Organiza el trabajo que mueve tu negocio.",
   "landing": "https://ponipro.com",
   "source": "Zafnatech Brand Book 2026-11-07"
- }
+ },
+ "banned_phrases": [
+  "100% automático",
+  "aumenta tus ventas",
+  "cotizaciones automáticas",
+  "disponible para todos",
+  "duplica tus ventas",
+  "garantizado",
+  "garantizamos",
+  "resultados garantizados",
+  "sube tus ventas",
+  "ya disponible en todo"
+ ]
 }

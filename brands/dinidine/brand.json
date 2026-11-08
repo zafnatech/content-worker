@@ -77,5 +77,19 @@
   "sample_line_not_approved": "Tu menú, listo para compartir.",
   "landing": "https://dinidine.com",
   "source": "Zafnatech Brand Book 2026-11-07"
- }
+ },
+ "banned_phrases": [
+  "100% automático",
+  "aumenta tus ventas",
+  "automatiza tus ventas",
+  "duplica tus ventas",
+  "garantizado",
+  "garantizamos",
+  "ordena desde nuestra app",
+  "pedidos nativos",
+  "pide desde nuestra app",
+  "recibe pedidos directo en dinidine",
+  "resultados garantizados",
+  "sube tus ventas"
+ ]
 }

@@ -1,0 +1,70 @@
+{
+ "id": "zafnatech",
+ "name": "Zafnatech",
+ "palette": {
+  "bg": [
+   243,
+   247,
+   251
+  ],
+  "ink": [
+   16,
+   42,
+   67
+  ],
+  "accent": [
+   36,
+   88,
+   211
+  ],
+  "white": [
+   255,
+   255,
+   255
+  ],
+  "ok": [
+   21,
+   158,
+   170
+  ]
+ },
+ "fonts": {
+  "display": "Outfit-800.ttf",
+  "body": "Outfit-700.ttf",
+  "soft": "Outfit-600.ttf",
+  "condensed": "Bebas.ttf"
+ },
+ "fonts_note": "Brand Book: firma en Space Grotesk Medium. Outfit es PROVISIONAL hasta tener el archivo de Space Grotesk en fonts/.",
+ "logo": "assets/logo.png",
+ "subtitle_highlight": [
+  "Zafnatech"
+ ],
+ "music": {
+  "bpm": 88
+ },
+ "voice": {
+  "voice_name": "(sin asignar)",
+  "tag": "[calm, confident]",
+  "stability": 0.5,
+  "similarity": 0.75,
+  "atempo": 1.15,
+  "pronounce": {
+   "Zafnatech": "Zaf-na-tec"
+  }
+ },
+ "banned_phrases": [
+  "garantizado",
+  "garantizamos",
+  "aumenta tus ventas",
+  "100% automático",
+  "disponible para todos"
+ ],
+ "guardrails": {
+  "role": "Marca madre de diez productos verticales de software para pequeños negocios",
+  "honest_message": "No anunciar como activa una función que solo aparece en un brief o una landing. No llamar 'final vectorial' a un PNG/WebP.",
+  "avoid": "Cambiar el color por submarca; degradados en el símbolo; convertir la t en iconografía religiosa literal.",
+  "palette_source": "Brand Book 2026-11-07: azul #2458D3, turquesa #159EAA, azul noche #102A43, blanco #FFFFFF",
+  "source": "Zafnatech Brand Book 2026-11-07"
+ },
+ "logo_white_bg": true
+}

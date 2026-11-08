@@ -55,5 +55,17 @@
   "sample_line_not_approved": "Más orden para cuidar cada cita.",
   "landing": "https://fifispa.com",
   "source": "Zafnatech Brand Book 2026-11-07"
- }
+ },
+ "banned_phrases": [
+  "100% automático",
+  "aumenta tus ventas",
+  "diagnóstico de mascotas",
+  "duplica tus ventas",
+  "garantizado",
+  "garantizamos",
+  "resultados garantizados",
+  "servicios veterinarios",
+  "sube tus ventas",
+  "veterinaria"
+ ]
 }

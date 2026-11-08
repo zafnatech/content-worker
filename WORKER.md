@@ -10,7 +10,14 @@ Source: the Mac project `content-factory` (copied 7 Nov 2026, without secrets, c
 ## Brands
 `brands/<slug>/` holds brand.json (palette, fonts, voice, `guardrails` from the Brand Book: status, language, honest message, avoid) + mascot + logo.
 Built from the 7 Nov 2026 brand book with `python3 tools/import_brandbook.py <folder>`. Palettes of the 9 new brands are PROVISIONAL (from the brief),
-voices (ElevenLabs) are not assigned yet, and only DiniDine has an approved look and voice. Mother brand Zafnatech: pending (vector logo, Space Grotesk font).
+voices (ElevenLabs) are not assigned yet, and only DiniDine has an approved look and voice. Mother brand `zafnatech` added (palette from the book: #2458D3 / #159EAA / #102A43; logo = the vector SVG rendered to PNG; the wordmark already carries Space Grotesk, UI text uses Outfit until the font file is added to `fonts/`; no mascot).
+Each brand has `banned_phrases` (Brand Book "evitar"): a hit blocks the render (`cf/guardrails.py`).
+
+## Done (8 Nov 2026)
+- Step 1: `cf/menu_video.py` (menu from the Agent API -> job; kinds `top3`, `estrella`; prices shown, never spoken) + tests.
+- Step 2: `worker.py` (`make`, `run`) -> render -> ElevenLabs voice -> Cloudinary -> panel as "needs review". Skips (never registers) a video with no consent / no voice. Per-run voice cap `WORKER_VOICE_USD_CAP`.
+- Env contract is in the `worker.py` docstring. Consent registry and channel list come from `CLIENTS_JSON` / `CHANNELS_JSON` env vars in the cloud.
+- KNOWN LIMIT before daily mode: slot state is a file lost between cloud runs. Fix = a platform endpoint that returns the already-scheduled slots + registered job keys (planned with `content_requests`).
 
 ## Plan (each step is its own commit; nothing publishes without approval in the panel)
 1. Menu -> video template: takes a business menu and builds the job JSON.

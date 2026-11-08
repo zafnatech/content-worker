@@ -55,5 +55,17 @@
   "sample_line_not_approved": "El negocio del taxi, mejor organizado.",
   "landing": "https://zebritaxi.com",
   "source": "Zafnatech Brand Book 2026-11-07"
- }
+ },
+ "banned_phrases": [
+  "100% automático",
+  "aumenta tus ventas",
+  "contesta mientras manejas",
+  "despacho automático",
+  "despacho de taxis",
+  "duplica tus ventas",
+  "garantizado",
+  "garantizamos",
+  "resultados garantizados",
+  "sube tus ventas"
+ ]
 }

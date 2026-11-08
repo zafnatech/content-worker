@@ -11,3 +11,4 @@ publish.db
 __pycache__/
 *.bak*
 .DS_Store
+jobs/_worker/

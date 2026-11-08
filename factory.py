@@ -14,6 +14,7 @@ os.chdir(HERE)
 
 from cf.env import load_env         # noqa: E402
 from cf.brand import Brand          # noqa: E402
+from cf import guardrails          # noqa: E402
 load_env()
 from cf.timeline import Scene, build  # noqa: E402
 from cf.voice import ensure_voice   # noqa: E402
@@ -32,8 +33,15 @@ def consent_ok(job):
         return False, 'el job usa archivos de clients/ pero no declara "client"'
     if not client:
         return True, 'sin cliente'
-    with open('clients.json', encoding='utf-8') as f:
-        reg = json.load(f)
+    try:
+        raw = os.environ.get('CLIENTS_JSON')   # in the cloud the consent registry lives in the host's env, not in git
+        if raw:
+            reg = json.loads(raw)
+        else:
+            with open('clients.json', encoding='utf-8') as f:
+                reg = json.load(f)
+    except (OSError, ValueError):
+        return False, 'no encuentro el registro de permisos (CLIENTS_JSON o clients.json)'
     c = reg.get(client)
     if not c:
         return False, f'cliente "{client}" no está en clients.json'
@@ -52,6 +60,10 @@ def run(job_path, preview=None, draft=False, out_dir=None, force_voice_pending=T
         return 3
     if not ok:
         print(f'[{jid}] aviso: {why}. Saldrá marcado BORRADOR.')
+    hits = guardrails.check(job)
+    if hits:
+        print(f'[{jid}] BLOQUEADO por reglas de la marca (Brand Book): {", ".join(hits)}. Corrige el texto del job.')
+        return 4
     brand = Brand(job.get('brand', 'dinidine'))
     scenes = [Scene(i, s) for i, s in enumerate(job['scenes'])]
     pending = ensure_voice(jid, scenes, brand, job.get('atempo'))

@@ -6,5 +6,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 # Secrets (ELEVENLABS_*, CLOUDINARY_*, CONTENT_INGEST_*) come ONLY from the host's environment variables, never from git.
-# Until worker.py exists (next step) the container just proves the renderer works:
-CMD ["python3", "factory.py", "--help"]
+# Daily mode v0: one menu video per client in WORKER_CLIENTS, registered in the panel for approval (never published here).
+# On Render: Cron Job with this image; the schedule lives in the dashboard.
+CMD ["python3", "worker.py", "run"]

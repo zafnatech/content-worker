@@ -55,5 +55,18 @@
   "sample_line_not_approved": "Una agenda más clara para tu consultorio.",
   "landing": "https://lanidental.com",
   "source": "Zafnatech Brand Book 2026-11-07"
- }
+ },
+ "banned_phrases": [
+  "100% automático",
+  "aumenta tus ventas",
+  "diagnóstico",
+  "duplica tus ventas",
+  "garantizado",
+  "garantizamos",
+  "historias de pacientes",
+  "resultados clínicos",
+  "resultados garantizados",
+  "sube tus ventas",
+  "tratamiento clínico"
+ ]
 }
