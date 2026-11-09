@@ -1133,9 +1133,7 @@
   "id": "tv-menu-pantalla",
   "pillar": "producto",
   "approved": true,
-  "needs": [
-   "tv"
-  ],
+  "needs": [],
   "kicker": "DiniDine TV",
   "hook": "Tu menú **en una pantalla**",
   "body_title": "En tu restaurante",
@@ -1153,10 +1151,11 @@
    "#restaurantes",
    "#menudigital",
    "#negociolatino",
-   "#Gwinnett"
+   "#Gwinnett",
+   "#DiniDineTV"
   ],
   "verify": [
-   "Confirma que DiniDine TV está probado en una pantalla real y qué incluye el plan antes de aprobar."
+   "DiniDine TV todavía no se ha probado en una televisión física: confirma que lo que dice el video es cierto antes de aprobar."
   ]
  },
  {
@@ -1314,5 +1313,121 @@
    "#Gwinnett"
   ],
   "on": "2027-01-06"
+ },
+ {
+  "id": "tv-que-poner",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine TV",
+  "hook": "¿Qué pones en **la tele** de tu restaurante?",
+  "body_title": "Tres ideas",
+  "points": [
+   "Tu **menú** completo",
+   "Tus **platos en video**",
+   "Lo que **más quieres vender**"
+  ],
+  "speak_body": "Esa pantalla puede trabajar por ti. Muestra tu menú, tus platos en video y lo que más quieres vender.",
+  "outro_title": "Que tu pantalla venda.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Esa pantalla puede trabajar por ti: tu menú, tus platos en video y lo que más quieres vender. Con DiniDine TV. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett",
+   "#DiniDineTV"
+  ],
+  "verify": [
+   "DiniDine TV todavía no se ha probado en una televisión física: confirma que lo que dice el video es cierto antes de aprobar."
+  ]
+ },
+ {
+  "id": "tv-fila-eligiendo",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine TV",
+  "hook": "Tu fila **ya puede ir eligiendo**",
+  "body_title": "Una pantalla visible",
+  "points": [
+   "El menú **a la vista**",
+   "Antes de **llegar a la caja**",
+   "Decisión **más rápida**"
+  ],
+  "speak_body": "Si tus clientes esperan, que puedan ver el menú desde su lugar. Cuando llegan a pedir, ya saben qué quieren.",
+  "outro_title": "Menos espera, más claridad.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Si tus clientes esperan, que vean el menú desde su lugar. Cuando llegan a pedir, ya saben qué quieren. DiniDine TV. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett",
+   "#DiniDineTV"
+  ],
+  "verify": [
+   "DiniDine TV todavía no se ha probado en una televisión física: confirma que lo que dice el video es cierto antes de aprobar."
+  ]
+ },
+ {
+  "id": "tv-usb-o-wifi",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine TV",
+  "hook": "¿USB o **reproductor Wi-Fi**?",
+  "body_title": "Dos formas de conectarla",
+  "points": [
+   "USB **pregrabada**",
+   "Reproductor **con Wi-Fi**",
+   "Tú **eliges**"
+  ],
+  "speak_body": "Hay dos formas de conectar tu televisor: con una USB pregrabada o con un reproductor con Wi-Fi. Tú eliges la que te convenga.",
+  "outro_title": "La que te convenga.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Dos formas de conectar tu TV a DiniDine TV: USB pregrabada o reproductor con Wi-Fi. Tú eliges. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett",
+   "#DiniDineTV"
+  ],
+  "verify": [
+   "DiniDine TV todavía no se ha probado en una televisión física: confirma que lo que dice el video es cierto antes de aprobar."
+  ]
+ },
+ {
+  "id": "tv-seis-pantallas",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine TV",
+  "hook": "Hasta **seis pantallas** por local",
+  "body_title": "Tu menú en cada una",
+  "points": [
+   "Hasta **6 pantallas**",
+   "Por **local**",
+   "Todas con **tu menú**"
+  ],
+  "speak_body": "Con DiniDine TV puedes tener hasta seis pantallas por local, todas mostrando tu menú.",
+  "outro_title": "Tu menú, en grande.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "DiniDine TV: hasta seis pantallas por local, todas con tu menú. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett",
+   "#DiniDineTV"
+  ],
+  "verify": [
+   "DiniDine TV todavía no se ha probado en una televisión física: confirma que lo que dice el video es cierto antes de aprobar."
+  ]
  }
 ]
