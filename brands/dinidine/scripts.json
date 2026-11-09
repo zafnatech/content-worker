@@ -2,21 +2,21 @@
  {
   "id": "consejo-foto-plato",
   "pillar": "consejo",
-  "approved": false,
+  "approved": true,
   "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "Tu mejor plato merece **una buena foto**",
-  "body_title": "Tres cosas que ayudan",
+  "kicker": "Consejo",
+  "hook": "¿Tu mejor plato **sale feo** en foto?",
+  "body_title": "Arréglalo en 3 pasos",
   "points": [
-   "**Luz** de ventana, sin flash",
-   "**De cerca**: que se vea la textura",
-   "**El mismo fondo** en todos tus platos"
+   "Luz de **ventana**, sin flash",
+   "Acércate: que se vea la **textura**",
+   "Siempre el **mismo fondo**"
   ],
-  "speak_body": "Una buena foto no necesita equipo caro. Usa luz de ventana y sin flash. Acércate para que se vea la textura. Y usa el mismo fondo en todos tus platos para que tu menú se vea ordenado.",
-  "outro_title": "Un menú ordenado se nota.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Una buena foto no necesita equipo caro: luz de ventana, de cerca y el mismo fondo para todos tus platos. ¿Quieres que tu menú se vea ordenado en el celular de tus clientes? Escríbenos.",
+  "speak_body": "Luz de ventana, nunca flash. Acércate para que se vea la textura. Y usa el mismo fondo en todos tus platos.",
+  "outro_title": "Buenas fotos, menú que vende.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Luz de ventana, de cerca y siempre el mismo fondo. Tus platos se ven mejor en tres pasos. ¿Quieres verlos en un menú digital? Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -27,21 +27,21 @@
  {
   "id": "consejo-menu-corto",
   "pillar": "consejo",
-  "approved": false,
+  "approved": true,
   "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "Un menú **más corto** se lee mejor",
-  "body_title": "Para revisar tu menú",
+  "kicker": "Consejo",
+  "hook": "Tu menú es **demasiado largo**",
+  "body_title": "Haz este recorte",
   "points": [
-   "Quita lo que casi **nadie pide**",
-   "Agrupa por **secciones claras**",
-   "Pon primero lo que **más te representa**"
+   "Quita lo que **nadie pide**",
+   "Agrupa en **secciones**",
+   "Lo mejor, **primero**"
   ],
-  "speak_body": "Un menú muy largo cansa al cliente. Revisa qué platos casi nadie pide y quítalos. Agrupa por secciones claras y pon primero lo que mejor te representa.",
+  "speak_body": "Revisa qué platos casi nadie pide y quítalos. Agrupa el resto por secciones y pon al principio lo que mejor te representa.",
   "outro_title": "Menos opciones, más claridad.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Un menú más corto se lee mejor. Revisa qué casi nadie pide, agrupa por secciones y pon primero lo que más te representa. Si quieres ayuda para ordenarlo, escríbenos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Un menú largo cansa. Quita lo que nadie pide, agrupa por secciones y pon primero tu mejor plato. ¿Te ayudamos a ordenarlo? Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -50,23 +50,23 @@
   ]
  },
  {
-  "id": "consejo-horario-google",
+  "id": "consejo-google-horario",
   "pillar": "consejo",
-  "approved": false,
+  "approved": true,
   "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "¿Tu horario en Google **está al día**?",
-  "body_title": "Revísalo hoy",
+  "kicker": "Consejo",
+  "hook": "Busca tu restaurante **en Google**. Ahora.",
+  "body_title": "Revisa tres cosas",
   "points": [
-   "Busca tu restaurante en **Google**",
-   "Compara **horario y teléfono**",
-   "Corrige lo que esté **viejo**"
+   "El **horario**",
+   "El **teléfono**",
+   "El **menú** que aparece"
   ],
-  "speak_body": "Busca tu restaurante en Google como si fueras un cliente. Compara el horario y el teléfono con los reales. Si algo está viejo, corrígelo hoy.",
+  "speak_body": "Búscate como lo haría un cliente. Mira si el horario es el de hoy, si el teléfono es el correcto y qué menú aparece. Un dato viejo hace perder visitas.",
   "outro_title": "Un dato viejo cuesta clientes.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Busca tu restaurante en Google como si fueras un cliente y revisa horario y teléfono. Un dato viejo hace que alguien llegue y encuentre cerrado. Si necesitas ayuda con tu presencia digital, escríbenos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Búscate en Google como un cliente: horario, teléfono y menú. Un dato viejo hace que alguien llegue y encuentre cerrado. ¿Dudas? Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -75,23 +75,23 @@
   ]
  },
  {
-  "id": "consejo-especial-dia",
+  "id": "consejo-plato-del-dia",
   "pillar": "consejo",
-  "approved": false,
+  "approved": true,
   "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "El plato del día **tiene que verse**",
-  "body_title": "Cómo darle lugar",
+  "kicker": "Consejo",
+  "hook": "Tu plato del día **nadie lo ve**",
+  "body_title": "Hazlo visible",
   "points": [
-   "Ponlo **al inicio** del menú",
-   "Dale **una foto propia**",
-   "Cámbialo **con frecuencia**"
+   "Al **inicio** del menú",
+   "Con **foto propia**",
+   "Cámbialo **seguido**"
   ],
-  "speak_body": "Si tienes un plato del día, que se vea. Ponlo al inicio del menú, dale su propia foto y cámbialo con frecuencia para que tus clientes tengan una razón para volver a mirar.",
-  "outro_title": "Dale a tu cliente algo nuevo que mirar.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "El plato del día tiene que verse: al inicio del menú, con foto propia y cambiando seguido. ¿Quieres un menú donde puedas cambiarlo fácil? Escríbenos.",
+  "speak_body": "Si tienes plato del día, ponlo al inicio del menú, con su propia foto, y cámbialo seguido. Así tus clientes siempre tienen algo nuevo que mirar.",
+  "outro_title": "Dale algo nuevo que mirar.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "El plato del día tiene que verse: al inicio, con foto propia y cambiando seguido. ¿Quieres un menú donde puedas cambiarlo fácil? Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -102,21 +102,21 @@
  {
   "id": "consejo-resenas",
   "pillar": "consejo",
-  "approved": false,
+  "approved": true,
   "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "Contesta **cada reseña**, buena o mala",
+  "kicker": "Consejo",
+  "hook": "Esa reseña mala **sí se contesta**",
   "body_title": "Una regla simple",
   "points": [
    "Agradece **con tu nombre**",
-   "Si es mala, **no discutas**",
-   "Ofrece **hablar en privado**"
+   "No discutas **en público**",
+   "Ofrece hablar **en privado**"
   ],
-  "speak_body": "Contesta todas las reseñas. Agradece con tu nombre. Si una es mala, no discutas en público y ofrece hablar en privado. Quien lee tus respuestas también te está evaluando.",
+  "speak_body": "Contesta cada reseña. Agradece con tu nombre. Si es mala, no discutas en público: ofrece hablar en privado. Los demás clientes leen tu respuesta.",
   "outro_title": "Tu respuesta también cuenta.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Contesta cada reseña, buena o mala: agradece con tu nombre, no discutas en público y ofrece hablar en privado. Quien lee tus respuestas también te está evaluando.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Contesta cada reseña, buena o mala. Agradece, no discutas en público y ofrece hablar en privado. Los demás clientes leen tu respuesta. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -125,23 +125,148 @@
   ]
  },
  {
-  "id": "consejo-clientes-lista",
+  "id": "consejo-contacto-clientes",
   "pillar": "consejo",
-  "approved": false,
+  "approved": true,
   "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "Tus clientes **ya te conocen**. ¿Tienes su contacto?",
+  "kicker": "Consejo",
+  "hook": "Tus clientes **vuelven**. ¿Tienes su contacto?",
   "body_title": "Empieza simple",
   "points": [
-   "Pide **el WhatsApp** de quien repite",
-   "Pídelo **con permiso**",
-   "Guárdalo **en un solo lugar**"
+   "Pide el **WhatsApp** a quien repite",
+   "Siempre **con permiso**",
+   "Guárdalo en **un solo lugar**"
   ],
-  "speak_body": "Tus clientes de siempre ya te conocen. Si no tienes cómo contactarlos, empieza por pedir el WhatsApp de quien repite, siempre con su permiso, y guárdalo en un solo lugar.",
+  "speak_body": "Pídele el WhatsApp a quien ya repite, siempre con su permiso, y guárdalo en un solo lugar. Esa lista es tuya.",
   "outro_title": "Una lista propia es tuya.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Tus clientes de siempre ya te conocen, pero ¿tienes cómo contactarlos? Empieza pidiendo su WhatsApp con permiso y guárdalo en un solo lugar.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Tus clientes de siempre ya te conocen, pero ¿tienes cómo contactarlos? Pide su WhatsApp con permiso y guárdalo en un solo lugar. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "consejo-precios-visibles",
+  "pillar": "consejo",
+  "approved": true,
+  "needs": [],
+  "kicker": "Consejo",
+  "hook": "Si no ven el precio, **dudan**",
+  "body_title": "Revisa tu menú",
+  "points": [
+   "Cada plato **con precio**",
+   "Letra que se **lea**",
+   "Sin **tachones**"
+  ],
+  "speak_body": "Si el cliente no ve el precio, duda. Revisa que cada plato lo tenga, que la letra se lea de lejos y que no haya tachones ni parches.",
+  "outro_title": "Un menú limpio da confianza.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Si el cliente no ve el precio, duda. Cada plato con su precio, letra legible y sin tachones. ¿Revisamos tu menú juntos? Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "consejo-hora-fuerte",
+  "pillar": "consejo",
+  "approved": true,
+  "needs": [],
+  "kicker": "Consejo",
+  "hook": "Tu hora fuerte **se gana antes de abrir**",
+  "body_title": "Antes de abrir",
+  "points": [
+   "Todo **cortado** de antemano",
+   "Quién hace **qué**",
+   "Menú **a la mano**"
+  ],
+  "speak_body": "Antes de abrir, deja todo cortado, define quién hace qué y ten el menú a la mano. Cuando llega la hora fuerte, solo ejecutas.",
+  "outro_title": "La hora fuerte se prepara.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "La hora fuerte se gana antes de abrir: todo cortado, roles claros y menú a la mano. Un consejo de DiniDine para dueños de restaurantes.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "consejo-redes-constancia",
+  "pillar": "consejo",
+  "approved": true,
+  "needs": [],
+  "kicker": "Consejo",
+  "hook": "Publicar todos los días **no es la clave**",
+  "body_title": "Haz esto mejor",
+  "points": [
+   "Dos días a la **semana**",
+   "Muestra **tus platos**",
+   "Sin **desaparecer**"
+  ],
+  "speak_body": "Elige dos días a la semana y muestra tus platos. Es mejor menos pero constante que publicar mucho una semana y desaparecer meses.",
+  "outro_title": "Constancia gana.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Publicar todos los días no es la clave. Elige dos días a la semana, muestra tus platos y sé constante. ¿Hablamos de tu menú digital? Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "consejo-equipo-menu",
+  "pillar": "consejo",
+  "approved": true,
+  "needs": [],
+  "kicker": "Consejo",
+  "hook": "Tu equipo **no conoce el menú**",
+  "body_title": "Cinco minutos al día",
+  "points": [
+   "Prueba **un plato**",
+   "Repasa los **ingredientes**",
+   "Practica **cómo describirlo**"
+  ],
+  "speak_body": "Dedica cinco minutos al día a probar un plato con tu equipo, repasar sus ingredientes y practicar cómo describirlo. Un equipo que conoce el menú vende mejor.",
+  "outro_title": "Un equipo que sabe, vende.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Cinco minutos al día: prueba un plato con tu equipo, repasa ingredientes y practica cómo describirlo. Un equipo que conoce el menú vende mejor. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "consejo-desde-la-acera",
+  "pillar": "consejo",
+  "approved": true,
+  "needs": [],
+  "kicker": "Consejo",
+  "hook": "Mira tu restaurante **desde la acera**",
+  "body_title": "Hazlo hoy",
+  "points": [
+   "¿Se ve **abierto**?",
+   "¿Se entiende **qué vendes**?",
+   "¿Invita a **entrar**?"
+  ],
+  "speak_body": "Párate en la acera y míralo como cliente. ¿Se ve abierto? ¿Se entiende qué vendes? ¿Invita a entrar? La primera impresión empieza afuera.",
+  "outro_title": "Míralo con ojos nuevos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Párate en la acera y mira tu restaurante como un cliente: ¿se ve abierto?, ¿se entiende qué vendes? La primera impresión empieza afuera. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -152,21 +277,21 @@
  {
   "id": "producto-qr-sin-app",
   "pillar": "producto",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Menú digital",
-  "hook": "Tu menú en el celular, **sin descargar nada**",
+  "hook": "Tu menú **sin descargar nada**",
   "body_title": "Así lo ve tu cliente",
   "points": [
-   "Escanea el **código QR**",
-   "Se abre **en el navegador**",
-   "Sin app, sin registro"
+   "Escanea el **QR**",
+   "Se abre en el **navegador**",
+   "Sin app, sin **registro**"
   ],
-  "speak_body": "Tu cliente escanea el código QR y el menú se abre en el navegador de su celular. No tiene que descargar ninguna app.",
+  "speak_body": "Tu cliente escanea el código QR y el menú se abre en su navegador. No descarga nada.",
   "outro_title": "Escanear y ver.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Tu cliente escanea el código QR y el menú se abre en su celular, sin descargar ninguna app. Escríbenos para ver cómo quedaría el tuyo.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Tu cliente escanea el QR y el menú se abre en su celular, sin descargar nada. ¿Quieres ver cómo quedaría el tuyo? Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -177,21 +302,21 @@
  {
   "id": "producto-video-plato",
   "pillar": "producto",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Menú digital",
   "hook": "Un plato que **se mueve** se nota",
   "body_title": "Video en tu menú",
   "points": [
-   "Un plato con **video animado**",
-   "Se ve **en el celular**",
-   "Tu cliente lo **mira antes de pedir**"
+   "Plato con **video animado**",
+   "En el **celular**",
+   "Se ve **antes de pedir**"
   ],
   "speak_body": "Tu menú puede mostrar un plato con video animado. Tu cliente lo ve en el celular antes de decidir qué pedir.",
-  "outro_title": "Que tu plato se vea como se merece.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Tu menú puede mostrar un plato con video animado para que tu cliente lo vea antes de decidir. Escríbenos y te mostramos cómo se ve.",
+  "outro_title": "Que tu plato se luzca.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Un plato con video animado en tu menú digital: tu cliente lo ve antes de decidir. ¿Quieres ver cómo se ve? Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -202,21 +327,21 @@
  {
   "id": "producto-cambiar-whatsapp",
   "pillar": "producto",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Menú digital",
   "hook": "Cambia tu menú **desde WhatsApp**",
   "body_title": "Sin llamar a nadie",
   "points": [
-   "Se acabó un plato: **avisa por WhatsApp**",
-   "Cambia un precio: **igual**",
-   "Tu menú se actualiza"
+   "Se acabó un plato: **avísalo**",
+   "Cambió un precio: **igual**",
+   "Tu menú **se actualiza**"
   ],
-  "speak_body": "Se acabó un plato o cambió un precio. Lo avisas por WhatsApp y tu menú se actualiza. No tienes que reimprimir nada.",
-  "outro_title": "Tu menú siempre al día.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Cambia tu menú desde WhatsApp: se acabó un plato o cambió un precio, lo avisas y tu menú se actualiza. Sin reimprimir. Escríbenos para verlo funcionando.",
+  "speak_body": "Se acabó un plato o cambió un precio. Lo avisas por WhatsApp y tu menú se actualiza. Sin reimprimir nada.",
+  "outro_title": "Siempre al día.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Se acabó un plato o cambió un precio: lo avisas por WhatsApp y tu menú se actualiza. Sin reimprimir. Escríbenos por mensaje para verlo funcionando.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -227,21 +352,21 @@
  {
   "id": "producto-base-clientes",
   "pillar": "producto",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Menú digital",
-  "hook": "Tus clientes **quedan en tu lista**",
-  "body_title": "Una base que crece sola",
+  "hook": "Tus clientes **se guardan solos**",
+  "body_title": "Una base que crece",
   "points": [
-   "El cliente deja **su contacto**",
-   "Se guarda **automáticamente**",
-   "La lista es **de tu restaurante**"
+   "Usan tu **menú digital**",
+   "Su contacto se **guarda**",
+   "La lista es **tuya**"
   ],
-  "speak_body": "Cuando tus clientes usan tu menú digital, su contacto se guarda automáticamente en tu base de clientes. La lista es de tu restaurante.",
+  "speak_body": "Cuando tus clientes usan tu menú digital, su contacto se guarda automáticamente. Es una lista de tu restaurante.",
   "outro_title": "Conoce a quien te visita.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Tus clientes pueden quedar en tu lista automáticamente cuando usan tu menú digital. La lista es de tu restaurante. Escríbenos para saber cómo funciona.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Con tu menú digital, el contacto de tus clientes se guarda automáticamente en una lista que es tuya. Escríbenos por mensaje y te contamos cómo.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -252,21 +377,21 @@
  {
   "id": "producto-demo-60",
   "pillar": "producto",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Demo gratis",
   "hook": "Mira tu menú digital **en 60 minutos**",
-  "body_title": "Cómo empieza",
+  "body_title": "Así empieza",
   "points": [
-   "Nos escribes **por WhatsApp**",
+   "Nos escribes **por mensaje**",
    "Armamos **tu demo**",
-   "La ves **sin costo**"
+   "La ves **gratis**"
   ],
-  "speak_body": "Nos escribes por WhatsApp y armamos una demo con tu menú. La ves sin costo, en unos sesenta minutos.",
-  "outro_title": "Primero lo ves, después decides.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Escríbenos por WhatsApp y armamos una demo con tu menú. La ves sin costo, en unos 60 minutos. Primero lo ves, después decides.",
+  "speak_body": "Nos escribes, armamos una demo con tu menú y la ves gratis, en unos sesenta minutos.",
+  "outro_title": "Primero lo ves.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Armamos una demo con tu menú y la ves gratis en unos 60 minutos. Primero lo ves, después decides. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -277,21 +402,146 @@
  {
   "id": "producto-espanol",
   "pillar": "producto",
-  "approved": false,
+  "approved": true,
   "needs": [],
-  "kicker": "Hablamos tu idioma",
-  "hook": "Soporte **en español**, de verdad",
+  "kicker": "Soporte",
+  "hook": "¿Soporte **en español**? Sí.",
   "body_title": "Cuando lo necesites",
   "points": [
    "Te atendemos **en español**",
-   "Por **WhatsApp**",
-   "Antes y **después** de empezar"
+   "Por **mensaje**",
+   "Antes y **después**"
   ],
-  "speak_body": "Si tienes una duda, te atendemos en español, por WhatsApp, antes y después de empezar.",
-  "outro_title": "Aquí no estás solo.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Soporte en español, por WhatsApp. Escríbenos.",
+  "speak_body": "Si tienes una duda, te atendemos en español, por mensaje, antes y después de empezar.",
+  "outro_title": "Aquí sí te entendemos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Soporte en español, por mensaje, antes y después de empezar. Escríbenos y compruébalo.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "producto-sin-reimprimir",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "Menú digital",
+  "hook": "Cambió un precio. **Cero reimpresiones.**",
+  "body_title": "Así de fácil",
+  "points": [
+   "Lo avisas por **WhatsApp**",
+   "El menú **se actualiza**",
+   "Nada que **imprimir**"
+  ],
+  "speak_body": "Cambió un precio y no quieres reimprimir. Lo avisas por WhatsApp y tu menú digital se actualiza.",
+  "outro_title": "Siempre al día.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Cambió un precio y no quieres reimprimir: lo avisas por WhatsApp y tu menú digital se actualiza. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "producto-qr-mesa",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "Menú digital",
+  "hook": "Un QR **en cada mesa**",
+  "body_title": "Así de simple",
+  "points": [
+   "El cliente **escanea**",
+   "Ve **tu menú**",
+   "Sin pedirlo a **nadie**"
+  ],
+  "speak_body": "Pon un código QR en cada mesa. El cliente lo escanea y ve tu menú sin tener que pedirlo.",
+  "outro_title": "Tu menú, a un escaneo.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Un código QR en cada mesa y tu cliente ve el menú sin pedirlo. Escríbenos por mensaje para ver cómo quedaría en tu restaurante.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "producto-precios-claros",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "Menú digital",
+  "hook": "Platos y precios **claros** en el celular",
+  "body_title": "Lo que ve tu cliente",
+  "points": [
+   "Cada plato con **su foto**",
+   "El precio **a la vista**",
+   "Todo **en un lugar**"
+  ],
+  "speak_body": "Tu menú digital muestra cada plato con su precio a la vista, todo en un solo lugar, en el celular de tu cliente.",
+  "outro_title": "Claro y a la vista.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Cada plato con su foto y su precio a la vista, en el celular de tu cliente. Escríbenos por mensaje y te mostramos un ejemplo.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "producto-prueba-celular",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "Menú digital",
+  "hook": "Pruébalo **en tu propio celular**",
+  "body_title": "Antes de decidir",
+  "points": [
+   "Te mostramos **un ejemplo**",
+   "Lo abres **en tu teléfono**",
+   "Ves lo que ve **tu cliente**"
+  ],
+  "speak_body": "Antes de decidir, pruébalo en tu propio celular. Ves exactamente lo mismo que verá tu cliente.",
+  "outro_title": "Mejor verlo que imaginarlo.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Pruébalo en tu propio celular antes de decidir: ves lo mismo que verá tu cliente. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "producto-demo-tu-menu",
+  "pillar": "producto",
+  "approved": true,
+  "needs": [],
+  "kicker": "Demo gratis",
+  "hook": "La demo es **con tu menú**",
+  "body_title": "No uno genérico",
+  "points": [
+   "Nos mandas **tu menú**",
+   "Armamos **la demo**",
+   "La ves **en tu celular**"
+  ],
+  "speak_body": "La demo se arma con tu menú, no con uno de ejemplo. Nos lo mandas, lo armamos y lo ves en tu celular.",
+  "outro_title": "Hecho con tu menú.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "La demo se arma con tu menú, no con uno de ejemplo. Nos lo mandas y lo ves en tu celular. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -302,21 +552,21 @@
  {
   "id": "objecion-ya-tengo-pagina",
   "pillar": "objecion",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Lo que escuchamos",
-  "hook": "«Ya tengo página.» ¿Y **se ve bien en el celular**?",
-  "body_title": "Pruébalo tú mismo",
+  "hook": "«Ya tengo página». ¿Y **en el celular**?",
+  "body_title": "Pruébalo ahora",
   "points": [
-   "Ábrela **en tu teléfono**",
-   "¿Se lee **sin hacer zoom**?",
-   "¿Encuentras el menú **en dos toques**?"
+   "Ábrela en tu **teléfono**",
+   "¿Se lee **sin zoom**?",
+   "¿Menú en **dos toques**?"
   ],
-  "speak_body": "Si ya tienes página, ábrela en tu teléfono. Fíjate si se lee sin hacer zoom y si encuentras el menú en dos toques. Eso es lo que vive tu cliente.",
+  "speak_body": "Abre tu página en tu teléfono. ¿Se lee sin hacer zoom? ¿Encuentras el menú en dos toques? Eso es lo que vive tu cliente.",
   "outro_title": "Míralo como tu cliente.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "«Ya tengo página.» Ábrela en tu teléfono: ¿se lee sin zoom?, ¿encuentras el menú en dos toques? Eso es lo que vive tu cliente. Si quieres una segunda opinión, escríbenos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "«Ya tengo página.» Ábrela en tu teléfono: ¿se lee sin zoom?, ¿el menú está a dos toques? Eso vive tu cliente. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -327,21 +577,21 @@
  {
   "id": "objecion-no-tengo-tiempo",
   "pillar": "objecion",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Lo que escuchamos",
   "hook": "«No tengo tiempo para tecnología»",
-  "body_title": "Lo que sí puedes hacer",
+  "body_title": "Entonces haz esto",
   "points": [
-   "Empieza **con un solo paso**",
-   "Que **otro lo configure** por ti",
-   "Tú solo **avisas los cambios**"
+   "Empieza con **un solo paso**",
+   "Que **otro lo configure**",
+   "Tú solo **avisas cambios**"
   ],
-  "speak_body": "Si no tienes tiempo, empieza con un solo paso y que otra persona lo configure por ti. Tú solo avisas los cambios.",
-  "outro_title": "Que la tecnología trabaje para ti.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "«No tengo tiempo para tecnología.» Empieza con un solo paso, que otra persona lo configure y tú solo avisa los cambios. Escríbenos y vemos cuál es el primero.",
+  "speak_body": "Empieza con un solo paso y que otra persona lo configure por ti. Tú solo avisas los cambios.",
+  "outro_title": "Que trabaje para ti.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "«No tengo tiempo para tecnología.» Empieza con un solo paso: que otro lo configure y tú solo avisas los cambios. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -350,52 +600,48 @@
   ]
  },
  {
-  "id": "objecion-pregunta-contrato",
+  "id": "objecion-antes-de-firmar",
   "pillar": "objecion",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Antes de firmar",
-  "hook": "Antes de firmar con cualquier proveedor, **pregunta esto**",
-  "body_title": "Cuatro preguntas",
+  "hook": "Antes de firmar con **cualquier proveedor**",
+  "body_title": "Pregunta esto",
   "points": [
    "¿Qué pasa **si quiero salir**?",
-   "¿Quién me **atiende después**?",
-   "¿Hay soporte **en español**?",
-   "¿**Qué incluye** exactamente?"
+   "¿Quién me atiende **después**?",
+   "¿Hay soporte **en español**?"
   ],
-  "speak_body": "Antes de firmar con cualquier proveedor, pregunta qué pasa si quieres salir, quién te atiende después de la venta, si hay soporte en español y qué incluye exactamente.",
+  "speak_body": "Pregunta qué pasa si quieres salir, quién te atiende después de la venta y si el soporte es en español. Las respuestas te dicen mucho.",
   "outro_title": "Pregunta antes de firmar.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Antes de firmar con cualquier proveedor pregunta: ¿qué pasa si quiero salir?, ¿quién me atiende después?, ¿hay soporte en español?, ¿qué incluye exactamente? Si quieres que revisemos juntos lo que te ofrecieron, escríbenos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Antes de firmar con cualquier proveedor, pregunta: ¿qué pasa si quiero salir?, ¿quién me atiende después?, ¿hay soporte en español? Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
    "#negociolatino",
    "#Gwinnett"
-  ],
-  "verify": [
-   "Habla de contratos en general (no de DiniDine): no menciona precio ni «sin contrato». Revisa que te guste el tono."
   ]
  },
  {
   "id": "objecion-soporte-desaparece",
   "pillar": "objecion",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Lo que escuchamos",
   "hook": "Te vendieron y **nunca más contestaron**",
-  "body_title": "Cómo evitarlo",
+  "body_title": "Evítalo así",
   "points": [
    "Pide un **contacto directo**",
-   "Pregunta **cuánto tardan** en responder",
-   "Prueba **escribiéndoles antes**"
+   "Pregunta **cuánto tardan**",
+   "Escríbeles **antes** de contratar"
   ],
-  "speak_body": "Si ya te pasó que te vendieron y nunca más contestaron, pide un contacto directo, pregunta cuánto tardan en responder y pruébalo escribiéndoles antes de contratar.",
+  "speak_body": "Pide un contacto directo, pregunta cuánto tardan en responder y escríbeles antes de contratar. Así ves cómo es el soporte de verdad.",
   "outro_title": "El soporte se prueba antes.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Te vendieron y nunca más contestaron. Para evitarlo: pide un contacto directo, pregunta cuánto tardan en responder y pruébalo escribiéndoles antes de contratar.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Te vendieron y nunca más contestaron. Para evitarlo: contacto directo, tiempo de respuesta y escríbeles antes de contratar. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -404,23 +650,173 @@
   ]
  },
  {
-  "id": "objecion-mis-clientes-no-usan",
+  "id": "objecion-clientes-celular",
   "pillar": "objecion",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Lo que escuchamos",
   "hook": "«Mis clientes no usan el celular para eso»",
-  "body_title": "Obsérvalo una noche",
+  "body_title": "Compruébalo esta noche",
   "points": [
-   "Mira **cuántos** sacan el teléfono",
-   "Pregunta **qué buscan** en él",
-   "Facilítales **lo que ya hacen**"
+   "Cuenta quién **saca el teléfono**",
+   "Pregunta **qué busca**",
+   "Facilítale **eso**"
   ],
-  "speak_body": "Una noche, mira cuántos clientes sacan el teléfono en la mesa y pregunta qué buscan en él. Un menú digital solo les facilita lo que ya hacen.",
+  "speak_body": "Esta noche cuenta cuántos clientes sacan el teléfono en la mesa. Un menú digital solo les facilita lo que ya hacen.",
   "outro_title": "Lo que ya hacen, más fácil.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "«Mis clientes no usan el celular para eso.» Una noche, observa cuántos lo sacan en la mesa. Un menú digital solo les facilita lo que ya hacen.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "«Mis clientes no usan el celular para eso.» Esta noche cuenta cuántos lo sacan en la mesa. Un menú digital les facilita lo que ya hacen. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "objecion-es-caro",
+  "pillar": "objecion",
+  "approved": true,
+  "needs": [],
+  "kicker": "Lo que escuchamos",
+  "hook": "«Seguro es caro»",
+  "body_title": "Antes de suponer",
+  "points": [
+   "Pregunta **qué incluye**",
+   "Compara con lo que **gastas hoy**",
+   "Pide **todo por escrito**"
+  ],
+  "speak_body": "Antes de suponer que es caro, pregunta qué incluye, compara con lo que gastas hoy en impresiones y pide todo por escrito.",
+  "outro_title": "Decide con datos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "«Seguro es caro.» Antes de suponer, pregunta qué incluye, compara con lo que gastas hoy y pide todo por escrito. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "objecion-ya-tengo-facebook",
+  "pillar": "objecion",
+  "approved": true,
+  "needs": [],
+  "kicker": "Lo que escuchamos",
+  "hook": "«Ya tengo mi Facebook»",
+  "body_title": "¿Y tu menú ahí?",
+  "points": [
+   "¿Está **al día**?",
+   "¿Se ve bien **en el celular**?",
+   "¿Es **la versión correcta**?"
+  ],
+  "speak_body": "Tener Facebook está bien. Pero ¿tu menú ahí está al día? ¿Se ve bien en el celular? ¿Es la versión correcta?",
+  "outro_title": "Un solo lugar para tu menú.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "«Ya tengo mi Facebook.» Está bien, pero ¿tu menú ahí está al día y se ve bien en el celular? Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "objecion-ingles",
+  "pillar": "objecion",
+  "approved": true,
+  "needs": [],
+  "kicker": "Lo que escuchamos",
+  "hook": "«Esos programas son en inglés»",
+  "body_title": "Entonces exige esto",
+  "points": [
+   "Todo **en español**",
+   "Soporte **en español**",
+   "Si no entiendes, **pregunta**"
+  ],
+  "speak_body": "Si el programa es en inglés y no lo entiendes, pide todo en español, incluido el soporte. Y si algo no se entiende, pregunta.",
+  "outro_title": "Si no lo entiendes, no lo firmes.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "«Esos programas son en inglés.» Pide todo en español, incluido el soporte, y si algo no se entiende, pregunta. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "objecion-ya-intente",
+  "pillar": "objecion",
+  "approved": true,
+  "needs": [],
+  "kicker": "Lo que escuchamos",
+  "hook": "«Ya lo intenté y no funcionó»",
+  "body_title": "Revisa esto antes",
+  "points": [
+   "¿Alguien te **acompañó**?",
+   "¿Se **actualizaba**?",
+   "¿Lo **usaban** tus clientes?"
+  ],
+  "speak_body": "Si ya lo intentaste, revisa si alguien te acompañó, si el menú se actualizaba y si tus clientes lo usaban. A veces el problema no era la idea.",
+  "outro_title": "Una mala experiencia no es el final.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "«Ya lo intenté y no funcionó.» Revisa si alguien te acompañó, si se actualizaba y si tus clientes lo usaban. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "objecion-lo-hago-yo",
+  "pillar": "objecion",
+  "approved": true,
+  "needs": [],
+  "kicker": "Lo que escuchamos",
+  "hook": "«Mejor lo hago yo mismo»",
+  "body_title": "Haz esta cuenta",
+  "points": [
+   "Tus **horas** al mes",
+   "Qué **dejas de hacer**",
+   "Qué **sí delegar**"
+  ],
+  "speak_body": "Cuenta cuántas horas al mes le dedicas, piensa qué dejas de hacer por eso y decide qué sí puedes delegar.",
+  "outro_title": "Tu tiempo también cuenta.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "«Mejor lo hago yo mismo.» Cuenta tus horas al mes, piensa qué dejas de hacer por eso y decide qué delegar. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "objecion-prueba-soporte",
+  "pillar": "objecion",
+  "approved": true,
+  "needs": [],
+  "kicker": "Antes de contratar",
+  "hook": "Prueba el soporte **antes de contratar**",
+  "body_title": "Un experimento fácil",
+  "points": [
+   "Escribe **una pregunta**",
+   "Mide **cuánto tardan**",
+   "¿Te **entienden**?"
+  ],
+  "speak_body": "Escríbeles una pregunta, mide cuánto tardan en responder y mira si te entienden. Así sabes cómo será cuando los necesites.",
+  "outro_title": "El soporte se prueba antes.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Antes de contratar a cualquier proveedor, escríbeles una pregunta, mide cuánto tardan y mira si te entienden. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -431,21 +827,21 @@
  {
   "id": "marca-quienes-somos",
   "pillar": "marca",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "DiniDine",
-  "hook": "Somos **DiniDine**, en Gwinnett",
-  "body_title": "Para restaurantes como el tuyo",
+  "hook": "Somos **DiniDine**, de Gwinnett",
+  "body_title": "Para restaurantes",
   "points": [
-   "Software para **dueños de restaurantes**",
+   "Software para **dueños**",
    "Pensado **en español**",
-   "Hecho **aquí, cerca de ti**"
+   "Hecho **aquí**"
   ],
-  "speak_body": "Somos DiniDine. Hacemos software para dueños de restaurantes, pensado en español y hecho aquí, cerca de ti en Gwinnett.",
+  "speak_body": "Somos DiniDine. Hacemos software para dueños de restaurantes, pensado en español y hecho aquí, en Gwinnett.",
   "outro_title": "Tu restaurante, tu idioma.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Somos DiniDine: software para dueños de restaurantes, pensado en español y hecho en Gwinnett. Escríbenos por WhatsApp.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Somos DiniDine: software para dueños de restaurantes, pensado en español y hecho en Gwinnett. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -456,7 +852,7 @@
  {
   "id": "marca-menu-claro",
   "pillar": "marca",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "DiniDine",
   "hook": "Un menú **claro** abre la mesa",
@@ -464,13 +860,13 @@
   "points": [
    "Que se **lea fácil**",
    "Que se **vea bien**",
-   "Que **siempre esté al día**"
+   "Que esté **al día**"
   ],
   "speak_body": "Lo que buscamos es simple: que tu menú se lea fácil, que se vea bien y que siempre esté al día.",
   "outro_title": "Claro, bonito y al día.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Un menú claro abre la mesa: que se lea fácil, que se vea bien y que siempre esté al día. Escríbenos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Un menú claro abre la mesa: se lee fácil, se ve bien y siempre está al día. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -481,21 +877,21 @@
  {
   "id": "marca-dini",
   "pillar": "marca",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "DiniDine",
-  "hook": "Conoce a **Dini**, el asistente de DiniDine",
-  "body_title": "Una abeja con buena onda",
+  "hook": "Ella es **Dini**",
+  "body_title": "El asistente de DiniDine",
   "points": [
-   "Dini es **nuestra abeja**",
-   "Te **acompaña** en el camino",
+   "Nuestra **abeja**",
+   "Te **acompaña**",
    "Con **buena onda**"
   ],
   "speak_body": "Ella es Dini, el asistente de DiniDine. Una abeja con buena onda que te acompaña en el camino.",
   "outro_title": "Dini te saluda.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Conoce a Dini, el asistente de DiniDine. Escríbenos y la conoces.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Conoce a Dini, el asistente de DiniDine. Escríbenos por mensaje y la conoces.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -506,7 +902,7 @@
  {
   "id": "marca-primero-ves",
   "pillar": "marca",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "DiniDine",
   "hook": "Primero lo ves. **Después decides.**",
@@ -516,11 +912,11 @@
    "La ves **con calma**",
    "Preguntas **lo que quieras**"
   ],
-  "speak_body": "Así trabajamos. Primero armamos una demo con tu menú. La ves con calma y nos preguntas lo que quieras. Después decides.",
+  "speak_body": "Armamos una demo con tu menú, la ves con calma y nos preguntas lo que quieras. Después decides.",
   "outro_title": "Sin presión.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Primero lo ves, después decides. Armamos una demo con tu menú y nos preguntas lo que quieras.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Primero lo ves, después decides. Armamos una demo con tu menú y nos preguntas lo que quieras. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -531,7 +927,7 @@
  {
   "id": "marca-gwinnett",
   "pillar": "marca",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "DiniDine",
   "hook": "Para restaurantes **independientes** de Gwinnett",
@@ -541,11 +937,11 @@
    "Dueños que **trabajan duro**",
    "Software **a su medida**"
   ],
-  "speak_body": "Trabajamos con restaurantes independientes de Gwinnett. Negocios de la comunidad, dueños que trabajan duro, y software hecho a su medida.",
-  "outro_title": "Orgullosos de servir a la comunidad.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Trabajamos con restaurantes independientes de Gwinnett: negocios de la comunidad y dueños que trabajan duro. Escríbenos.",
+  "speak_body": "Trabajamos con restaurantes independientes de Gwinnett: negocios de la comunidad y dueños que trabajan duro.",
+  "outro_title": "Orgullosos de servir aquí.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Trabajamos con restaurantes independientes de Gwinnett: negocios de la comunidad y dueños que trabajan duro. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -554,25 +950,175 @@
   ]
  },
  {
-  "id": "agentes-contestar-whatsapp",
+  "id": "marca-que-hacemos",
+  "pillar": "marca",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine",
+  "hook": "¿Qué hacemos? **Menús digitales**",
+  "body_title": "En una frase",
+  "points": [
+   "Menú **en el celular**",
+   "Hecho **para ti**",
+   "Soporte **en español**"
+  ],
+  "speak_body": "En una frase: hacemos menús digitales para restaurantes, en el celular de tus clientes y con soporte en español.",
+  "outro_title": "Simple y claro.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Hacemos menús digitales para restaurantes, con soporte en español. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "marca-por-que-whatsapp",
+  "pillar": "marca",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine",
+  "hook": "Todo es **por WhatsApp**. ¿Por qué?",
+  "body_title": "Porque ahí estás",
+  "points": [
+   "Ya lo usas **a diario**",
+   "Nada nuevo que **aprender**",
+   "Respondes **cuando puedas**"
+  ],
+  "speak_body": "Porque ahí ya estás todos los días. No hay nada nuevo que aprender y respondes cuando puedas.",
+  "outro_title": "Donde ya estás.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Todo es por WhatsApp porque ahí ya estás todos los días. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "marca-tu-idioma",
+  "pillar": "marca",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine",
+  "hook": "Tu restaurante, **en tu idioma**",
+  "body_title": "Español de verdad",
+  "points": [
+   "Explicamos **en español**",
+   "Atendemos **en español**",
+   "Sin **tecnicismos**"
+  ],
+  "speak_body": "Explicamos y atendemos en español, y sin tecnicismos innecesarios.",
+  "outro_title": "Tu idioma, tu negocio.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Explicamos y atendemos en español, sin tecnicismos innecesarios. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "marca-detras",
+  "pillar": "marca",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine",
+  "hook": "¿Quién está **detrás de DiniDine**?",
+  "body_title": "Una persona real",
+  "points": [
+   "Alguien **de Gwinnett**",
+   "Que **escucha** al dueño",
+   "Y **contesta** tu mensaje"
+  ],
+  "speak_body": "Detrás de DiniDine hay una persona real de Gwinnett que escucha a los dueños y contesta tus mensajes.",
+  "outro_title": "Te respondemos.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Detrás de DiniDine hay una persona real de Gwinnett que escucha a los dueños y contesta tus mensajes. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "marca-menu-vivo",
+  "pillar": "marca",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine",
+  "hook": "Un menú **vivo**, no un papel",
+  "body_title": "Nuestra idea",
+  "points": [
+   "Cambia **con tu negocio**",
+   "Se ve en **cualquier celular**",
+   "Siempre **el correcto**"
+  ],
+  "speak_body": "Nuestra idea es un menú vivo, no un papel: cambia cuando tu negocio cambia y siempre es el correcto.",
+  "outro_title": "Un menú que acompaña.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Un menú vivo, no un papel: cambia cuando tu negocio cambia. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "marca-dueno-primero",
+  "pillar": "marca",
+  "approved": true,
+  "needs": [],
+  "kicker": "DiniDine",
+  "hook": "Pensamos **primero en el dueño**",
+  "body_title": "Cómo trabajamos",
+  "points": [
+   "Escuchamos **antes**",
+   "Explicamos **sin prisa**",
+   "Tú decides **cuándo**"
+  ],
+  "speak_body": "Escuchamos antes de ofrecer, explicamos sin prisa y tú decides cuándo.",
+  "outro_title": "Sin prisa.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Escuchamos antes de ofrecer, explicamos sin prisa y tú decides cuándo. Escríbenos por mensaje.",
+  "hashtags": [
+   "#restaurantes",
+   "#menudigital",
+   "#negociolatino",
+   "#Gwinnett"
+  ]
+ },
+ {
+  "id": "agentes-contestar",
   "pillar": "agentes",
-  "approved": false,
+  "approved": true,
   "needs": [
    "agents"
   ],
   "kicker": "Asistente",
-  "hook": "Tu restaurante **contesta aunque estés cocinando**",
+  "hook": "Tu restaurante **contesta mientras cocinas**",
   "body_title": "Con un asistente",
   "points": [
-   "Responde **preguntas comunes**",
-   "Te **avisa** de lo importante",
-   "**Tú decides** el resto"
+   "Responde **lo común**",
+   "Te **avisa** lo importante",
+   "**Tú** decides el resto"
   ],
-  "speak_body": "Un asistente puede responder las preguntas comunes de tus clientes mientras tú cocinas, y avisarte de lo importante.",
-  "outro_title": "Más tiempo para tu cocina.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Un asistente que responde preguntas comunes mientras tú cocinas. Escríbenos y te contamos cómo funciona.",
+  "speak_body": "Un asistente puede responder las preguntas comunes de tus clientes mientras tú cocinas y avisarte de lo importante.",
+  "outro_title": "Más tiempo para cocinar.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Un asistente que responde las preguntas comunes mientras tú cocinas. Escríbenos por mensaje y te contamos.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -586,23 +1132,23 @@
  {
   "id": "tv-menu-pantalla",
   "pillar": "producto",
-  "approved": false,
+  "approved": true,
   "needs": [
    "tv"
   ],
   "kicker": "DiniDine TV",
   "hook": "Tu menú **en una pantalla**",
-  "body_title": "En el restaurante",
+  "body_title": "En tu restaurante",
   "points": [
    "Se ve **desde la mesa**",
    "Se actualiza **solo**",
-   "Platos con **video**"
+   "Platos **en video**"
   ],
   "speak_body": "Tu menú puede verse en una pantalla dentro del restaurante, con tus platos en video.",
   "outro_title": "Tu menú, en grande.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Tu menú en una pantalla dentro de tu restaurante. Escríbenos para saber más.",
+  "cta": "Escríbenos por mensaje",
+  "speak_outro": "Escríbenos por mensaje y lo vemos.",
+  "caption": "Tu menú en una pantalla dentro de tu restaurante. Escríbenos por mensaje.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -616,21 +1162,21 @@
  {
   "id": "fecha-gracias-2026",
   "pillar": "fecha",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Gracias",
-  "hook": "Gracias por **abrir tu puerta cada día**",
-  "body_title": "Un día para agradecer",
+  "hook": "Gracias por **abrir tu puerta** cada día",
+  "body_title": "Hoy, gracias",
   "points": [
-   "Gracias a **tu equipo**",
-   "Gracias a **tus clientes**",
-   "Gracias a **tu familia**"
+   "A tu **equipo**",
+   "A tus **clientes**",
+   "A tu **familia**"
   ],
-  "speak_body": "En este día de acción de gracias, gracias a ti que abres tu restaurante cada día. Gracias a tu equipo, a tus clientes y a tu familia.",
+  "speak_body": "En este Día de Acción de Gracias, gracias a ti que abres tu restaurante cada día. A tu equipo, a tus clientes y a tu familia.",
   "outro_title": "Feliz Día de Acción de Gracias.",
   "cta": "De parte de DiniDine",
-  "speak_outro": "Feliz Día de Acción de Gracias de parte de todos en DiniDine.",
-  "caption": "Feliz Día de Acción de Gracias. Gracias a todos los dueños de restaurantes que abren su puerta cada día en Gwinnett. De parte de DiniDine.",
+  "speak_outro": "Feliz Día de Acción de Gracias de parte de DiniDine.",
+  "caption": "Gracias a los dueños de restaurantes que abren su puerta cada día en Gwinnett. Feliz Día de Acción de Gracias de parte de DiniDine.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -642,21 +1188,21 @@
  {
   "id": "fecha-small-business-2026",
   "pillar": "fecha",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Small Business Saturday",
-  "hook": "Hoy apoyamos **lo local**",
+  "hook": "Hoy, **apoya lo local**",
   "body_title": "Small Business Saturday",
   "points": [
-   "Visita un **restaurante** de tu zona",
+   "Visita un **restaurante**",
    "Cuéntale a **un amigo**",
    "Deja **una reseña**"
   ],
   "speak_body": "Hoy es Small Business Saturday. Visita un restaurante de tu zona, cuéntale a un amigo y deja una reseña. Lo local se sostiene entre todos.",
   "outro_title": "Lo local se sostiene entre todos.",
   "cta": "De parte de DiniDine",
-  "speak_outro": "Feliz Small Business Saturday. Lo local se sostiene entre todos.",
-  "caption": "Hoy es Small Business Saturday: visita un restaurante de tu zona, cuéntale a un amigo y deja una reseña. Lo local se sostiene entre todos.",
+  "speak_outro": "Feliz Small Business Saturday de parte de DiniDine.",
+  "caption": "Hoy es Small Business Saturday: visita un restaurante de tu zona, cuéntale a un amigo y deja una reseña. De parte de DiniDine.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -668,7 +1214,7 @@
  {
   "id": "fecha-guadalupe-2026",
   "pillar": "fecha",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "12 de diciembre",
   "hook": "Feliz día de la **Virgen de Guadalupe**",
@@ -676,13 +1222,13 @@
   "points": [
    "Para quienes **la celebran**",
    "Para sus **familias**",
-   "Que sea **un día en paz**"
+   "Un día **en paz**"
   ],
   "speak_body": "Hoy es el día de la Virgen de Guadalupe. Un saludo con respeto para quienes lo celebran y para sus familias.",
   "outro_title": "Que sea un día en paz.",
   "cta": "De parte de DiniDine",
   "speak_outro": "Un saludo con respeto de parte de DiniDine.",
-  "caption": "Hoy es el día de la Virgen de Guadalupe. Un saludo con respeto para quienes lo celebran y para sus familias. De parte de DiniDine.",
+  "caption": "Un saludo con respeto para quienes celebran hoy a la Virgen de Guadalupe y para sus familias. De parte de DiniDine.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -694,17 +1240,17 @@
  {
   "id": "fecha-nochebuena-2026",
   "pillar": "fecha",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Nochebuena",
   "hook": "Feliz **Nochebuena**",
   "body_title": "Esta noche",
   "points": [
-   "Que la **mesa** esté llena",
-   "Que haya **buena compañía**",
-   "Que descanses **después**"
+   "Mesa **llena**",
+   "Buena **compañía**",
+   "Y a descansar **después**"
   ],
-  "speak_body": "Feliz Nochebuena a los restaurantes y a las familias de Gwinnett. Que la mesa esté llena y que tengas buena compañía.",
+  "speak_body": "Feliz Nochebuena a los restaurantes y a las familias de Gwinnett. Que la mesa esté llena y la compañía sea buena.",
   "outro_title": "Feliz Nochebuena.",
   "cta": "De parte de DiniDine",
   "speak_outro": "Feliz Nochebuena de parte de DiniDine.",
@@ -720,17 +1266,17 @@
  {
   "id": "fecha-fin-de-ano-2026",
   "pillar": "fecha",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Fin de año",
-  "hook": "Gracias por **este año**",
-  "body_title": "Despedimos 2026",
+  "hook": "Gracias por **este 2026**",
+  "body_title": "Despedimos el año",
   "points": [
-   "Gracias a quienes **confiaron**",
-   "Gracias a quienes **nos escribieron**",
+   "A quienes **confiaron**",
+   "A quienes **escribieron**",
    "Nos vemos **en 2027**"
   ],
-  "speak_body": "Despedimos el año. Gracias a quienes nos escribieron y a quienes confiaron en nosotros. Nos vemos en 2027.",
+  "speak_body": "Despedimos el año. Gracias a quienes confiaron en nosotros y a quienes nos escribieron. Nos vemos en 2027.",
   "outro_title": "Feliz año nuevo.",
   "cta": "De parte de DiniDine",
   "speak_outro": "Feliz año nuevo de parte de DiniDine.",
@@ -746,7 +1292,7 @@
  {
   "id": "fecha-reyes-2027",
   "pillar": "fecha",
-  "approved": false,
+  "approved": true,
   "needs": [],
   "kicker": "Día de Reyes",
   "hook": "Feliz **Día de Reyes**",
@@ -754,13 +1300,13 @@
   "points": [
    "La **rosca** se comparte",
    "La **familia** se reúne",
-   "La **tradición** continúa"
+   "La **tradición** sigue"
   ],
-  "speak_body": "Feliz Día de Reyes. Que la rosca se comparta y la familia se reúna. De parte de DiniDine.",
+  "speak_body": "Feliz Día de Reyes. Que la rosca se comparta y la familia se reúna.",
   "outro_title": "Feliz Día de Reyes.",
   "cta": "De parte de DiniDine",
   "speak_outro": "Feliz Día de Reyes de parte de DiniDine.",
-  "caption": "Feliz Día de Reyes: que la rosca se comparta y la familia se reúna. De parte de DiniDine.",
+  "caption": "Que la rosca se comparta y la familia se reúna. Feliz Día de Reyes de parte de DiniDine.",
   "hashtags": [
    "#restaurantes",
    "#menudigital",
@@ -768,558 +1314,5 @@
    "#Gwinnett"
   ],
   "on": "2027-01-06"
- },
- {
-  "id": "consejo-precios-visibles",
-  "pillar": "consejo",
-  "approved": false,
-  "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "Si el cliente **no ve el precio**, duda",
-  "body_title": "Qué revisar",
-  "points": [
-   "Cada plato **con su precio**",
-   "Letra **legible** de lejos",
-   "Sin tachones ni **parches**"
-  ],
-  "speak_body": "Si el cliente no ve el precio, duda. Revisa que cada plato tenga su precio, que la letra se lea y que no haya tachones ni parches.",
-  "outro_title": "Un menú limpio da confianza.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Cada plato con su precio, letra legible y sin tachones: un menú limpio da confianza. ¿Quieres revisarlo juntos? Escríbenos.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "consejo-hora-pico",
-  "pillar": "consejo",
-  "approved": false,
-  "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "Prepárate para **tu hora más fuerte**",
-  "body_title": "Antes de abrir",
-  "points": [
-   "Ten **todo cortado** antes",
-   "Define **quién hace qué**",
-   "Ten **el menú a la mano**"
-  ],
-  "speak_body": "Para tu hora más fuerte, ten todo cortado antes de abrir, define quién hace qué y ten tu menú a la mano para responder rápido.",
-  "outro_title": "La hora fuerte se gana antes.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "La hora fuerte se gana antes de abrir: todo cortado, roles claros y el menú a la mano. Un consejo para dueños de DiniDine.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "consejo-redes-constancia",
-  "pillar": "consejo",
-  "approved": false,
-  "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "En redes, **menos pero constante**",
-  "body_title": "Una regla simple",
-  "points": [
-   "Elige **dos días** a la semana",
-   "Publica **lo mismo de siempre**: tus platos",
-   "No te **abandones** meses"
-  ],
-  "speak_body": "En redes es mejor menos pero constante. Elige dos días a la semana, muestra tus platos y no desaparezcas por meses.",
-  "outro_title": "Constancia gana a intensidad.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "En redes, menos pero constante: elige dos días a la semana, muestra tus platos y no desaparezcas por meses.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "consejo-equipo-menu",
-  "pillar": "consejo",
-  "approved": false,
-  "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "Tu equipo debe **conocer el menú**",
-  "body_title": "Cinco minutos al día",
-  "points": [
-   "Prueba **un plato** con el equipo",
-   "Revisa **ingredientes**",
-   "Practica **la descripción**"
-  ],
-  "speak_body": "Que tu equipo conozca el menú. Dedica cinco minutos al día a probar un plato, revisar sus ingredientes y practicar cómo describirlo.",
-  "outro_title": "Un equipo que conoce el menú vende mejor.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Dedica cinco minutos al día a que tu equipo pruebe un plato, revise ingredientes y practique cómo describirlo.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "consejo-primera-impresion",
-  "pillar": "consejo",
-  "approved": false,
-  "needs": [],
-  "kicker": "Consejo para dueños",
-  "hook": "La primera impresión **empieza afuera**",
-  "body_title": "Míralo como cliente",
-  "points": [
-   "Párate **en la acera**",
-   "¿Se ve **abierto**?",
-   "¿Se **entiende** qué vendes?"
-  ],
-  "speak_body": "La primera impresión empieza afuera. Párate en la acera y mírate como cliente. ¿Se ve abierto? ¿Se entiende qué vendes?",
-  "outro_title": "Míralo con ojos nuevos.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "La primera impresión empieza afuera. Párate en la acera y pregúntate: ¿se ve abierto?, ¿se entiende qué vendes?",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "producto-sin-reimprimir",
-  "pillar": "producto",
-  "approved": false,
-  "needs": [],
-  "kicker": "Menú digital",
-  "hook": "Cambió un precio. **Cero reimpresiones.**",
-  "body_title": "Menú que se actualiza",
-  "points": [
-   "Lo avisas **por WhatsApp**",
-   "Tu menú **se actualiza**",
-   "Sin **volver a imprimir**"
-  ],
-  "speak_body": "Cambió un precio y no quieres reimprimir. Lo avisas por WhatsApp y tu menú digital se actualiza.",
-  "outro_title": "Tu menú siempre al día.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Cambió un precio y no quieres reimprimir. Lo avisas por WhatsApp y tu menú digital se actualiza. Escríbenos para verlo.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "producto-qr-mesa",
-  "pillar": "producto",
-  "approved": false,
-  "needs": [],
-  "kicker": "Menú digital",
-  "hook": "Un código QR **en cada mesa**",
-  "body_title": "Así de simple",
-  "points": [
-   "El cliente **escanea**",
-   "Ve **tu menú**",
-   "Sin pedirlo **a nadie**"
-  ],
-  "speak_body": "Pon un código QR en cada mesa. El cliente lo escanea y ve tu menú sin tener que pedirlo.",
-  "outro_title": "Tu menú, a un escaneo.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Un código QR en cada mesa: el cliente lo escanea y ve tu menú sin pedirlo. Escríbenos para ver cómo quedaría.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "producto-precios-claros",
-  "pillar": "producto",
-  "approved": false,
-  "needs": [],
-  "kicker": "Menú digital",
-  "hook": "Platos y precios **claros en pantalla**",
-  "body_title": "Lo que ve tu cliente",
-  "points": [
-   "Cada plato **con su foto**",
-   "Su precio **a la vista**",
-   "Todo **en un solo lugar**"
-  ],
-  "speak_body": "Tu menú digital muestra cada plato con su precio a la vista, todo en un solo lugar, en el celular de tu cliente.",
-  "outro_title": "Claro y a la vista.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Platos y precios claros en el celular de tu cliente, todo en un solo lugar. Escríbenos para ver un ejemplo.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "producto-prueba-celular",
-  "pillar": "producto",
-  "approved": false,
-  "needs": [],
-  "kicker": "Menú digital",
-  "hook": "Pruébalo **con tu propio celular**",
-  "body_title": "Antes de decidir",
-  "points": [
-   "Te mostramos **un ejemplo**",
-   "Lo abres **en tu teléfono**",
-   "Ves lo que ve **tu cliente**"
-  ],
-  "speak_body": "Antes de decidir, pruébalo con tu propio celular. Te mostramos un ejemplo y ves lo mismo que verá tu cliente.",
-  "outro_title": "Mejor verlo que imaginarlo.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Pruébalo con tu propio celular antes de decidir: ves lo mismo que verá tu cliente. Escríbenos.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "producto-demo-tu-menu",
-  "pillar": "producto",
-  "approved": false,
-  "needs": [],
-  "kicker": "Demo gratis",
-  "hook": "Una demo **con tu menú**",
-  "body_title": "No con uno genérico",
-  "points": [
-   "Nos mandas **tu menú**",
-   "Armamos **la demo**",
-   "La ves **en tu celular**"
-  ],
-  "speak_body": "La demo se arma con tu menú, no con uno genérico. Nos lo mandas, lo armamos y lo ves en tu celular.",
-  "outro_title": "Hecho con tu menú.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "La demo se arma con tu menú, no con uno genérico. Nos lo mandas, lo armamos y lo ves en tu celular. Escríbenos.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "objecion-es-caro",
-  "pillar": "objecion",
-  "approved": false,
-  "needs": [],
-  "kicker": "Lo que escuchamos",
-  "hook": "«Seguro es caro»",
-  "body_title": "Antes de suponer",
-  "points": [
-   "Pregunta **qué incluye**",
-   "Compara **con lo que gastas hoy**",
-   "Pide **todo por escrito**"
-  ],
-  "speak_body": "Antes de suponer que es caro, pregunta qué incluye, compara con lo que gastas hoy en impresiones y pide todo por escrito.",
-  "outro_title": "Decide con datos.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "«Seguro es caro.» Antes de suponer: pregunta qué incluye, compara con lo que gastas hoy y pide todo por escrito.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "objecion-ya-uso-redes",
-  "pillar": "objecion",
-  "approved": false,
-  "needs": [],
-  "kicker": "Lo que escuchamos",
-  "hook": "«Ya tengo mi Facebook»",
-  "body_title": "Está bien. ¿Y el menú?",
-  "points": [
-   "¿El menú **está actualizado**?",
-   "¿Se ve **en el celular**?",
-   "¿Hay **un solo lugar** de verdad?"
-  ],
-  "speak_body": "Tener Facebook está bien. Pregúntate si tu menú ahí está actualizado, si se ve bien en el celular y si hay un solo lugar donde esté la versión correcta.",
-  "outro_title": "Un solo lugar para el menú.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "«Ya tengo mi Facebook.» Está bien, pero ¿tu menú ahí está al día y se ve bien en el celular?",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "objecion-no-se-ingles",
-  "pillar": "objecion",
-  "approved": false,
-  "needs": [],
-  "kicker": "Lo que escuchamos",
-  "hook": "«No entiendo esos programas en inglés»",
-  "body_title": "Con razón",
-  "points": [
-   "Pide **todo en español**",
-   "Pide soporte **en español**",
-   "Si no lo entiendes, **pregunta**"
-  ],
-  "speak_body": "Si los programas son en inglés y no los entiendes, pide todo en español, incluido el soporte. Si algo no se entiende, pregunta.",
-  "outro_title": "Si no lo entiendes, no lo firmes.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "«No entiendo esos programas en inglés.» Pide todo en español, incluido el soporte, y si algo no se entiende, pregunta.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "objecion-ya-intente",
-  "pillar": "objecion",
-  "approved": false,
-  "needs": [],
-  "kicker": "Lo que escuchamos",
-  "hook": "«Ya lo intenté y no funcionó»",
-  "body_title": "Qué revisar antes de rendirte",
-  "points": [
-   "¿Alguien **te acompañó**?",
-   "¿Se **actualizaba**?",
-   "¿Lo **usaban** tus clientes?"
-  ],
-  "speak_body": "Si ya lo intentaste y no funcionó, revisa si alguien te acompañó, si se actualizaba y si tus clientes lo usaban. A veces el problema no era la idea.",
-  "outro_title": "Una mala experiencia no es el final.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "«Ya lo intenté y no funcionó.» Revisa si alguien te acompañó, si se actualizaba y si tus clientes lo usaban.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "objecion-lo-hago-yo",
-  "pillar": "objecion",
-  "approved": false,
-  "needs": [],
-  "kicker": "Lo que escuchamos",
-  "hook": "«Mejor lo hago yo mismo»",
-  "body_title": "Cuánto vale tu tiempo",
-  "points": [
-   "Cuenta **tus horas** al mes",
-   "Piensa **qué dejas de hacer**",
-   "Decide **qué sí delegar**"
-  ],
-  "speak_body": "Si prefieres hacerlo tú mismo, cuenta tus horas al mes, piensa qué dejas de hacer por eso y decide qué sí puedes delegar.",
-  "outro_title": "Tu tiempo también cuesta.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "«Mejor lo hago yo mismo.» Cuenta tus horas, piensa qué dejas de hacer por eso y decide qué sí delegar.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "objecion-pregunta-quien-contesta",
-  "pillar": "objecion",
-  "approved": false,
-  "needs": [],
-  "kicker": "Antes de contratar",
-  "hook": "Antes de contratar, **prueba el soporte**",
-  "body_title": "Un experimento fácil",
-  "points": [
-   "Escribe **una pregunta**",
-   "Mide **cuánto tardan**",
-   "Mira **si te entienden**"
-  ],
-  "speak_body": "Antes de contratar a cualquier proveedor, escríbeles una pregunta, mide cuánto tardan en responder y mira si te entienden.",
-  "outro_title": "El soporte se prueba antes.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Antes de contratar, escribe una pregunta, mide cuánto tardan en responder y mira si te entienden.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "marca-que-hacemos",
-  "pillar": "marca",
-  "approved": false,
-  "needs": [],
-  "kicker": "DiniDine",
-  "hook": "¿Qué hacemos? **Menús digitales**",
-  "body_title": "En una frase",
-  "points": [
-   "Menú **en el celular**",
-   "Hecho **para tu restaurante**",
-   "Con soporte **en español**"
-  ],
-  "speak_body": "En una frase: hacemos menús digitales para restaurantes. En el celular de tus clientes, hechos para tu restaurante y con soporte en español.",
-  "outro_title": "Simple y claro.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "En una frase: hacemos menús digitales para restaurantes, con soporte en español. Escríbenos.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "marca-por-que-whatsapp",
-  "pillar": "marca",
-  "approved": false,
-  "needs": [],
-  "kicker": "DiniDine",
-  "hook": "Por qué todo es **por WhatsApp**",
-  "body_title": "Porque ahí estás",
-  "points": [
-   "Ya lo **usas todos los días**",
-   "No hay **nada que aprender**",
-   "Respondes **cuando puedas**"
-  ],
-  "speak_body": "Todo es por WhatsApp porque ahí ya estás todos los días. No hay nada nuevo que aprender y respondes cuando puedas.",
-  "outro_title": "Donde ya estás.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Todo es por WhatsApp porque ahí ya estás todos los días. Escríbenos.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "marca-tu-idioma",
-  "pillar": "marca",
-  "approved": false,
-  "needs": [],
-  "kicker": "DiniDine",
-  "hook": "Tu restaurante, **en tu idioma**",
-  "body_title": "Español de verdad",
-  "points": [
-   "Explicamos **en español**",
-   "Atendemos **en español**",
-   "Sin tecnicismos **innecesarios**"
-  ],
-  "speak_body": "Explicamos y atendemos en español, y sin tecnicismos innecesarios.",
-  "outro_title": "Tu idioma, tu negocio.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Explicamos y atendemos en español, sin tecnicismos innecesarios. Escríbenos.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "marca-detras-dinidine",
-  "pillar": "marca",
-  "approved": false,
-  "needs": [],
-  "kicker": "DiniDine",
-  "hook": "¿Quién está **detrás de DiniDine**?",
-  "body_title": "Una persona real",
-  "points": [
-   "Alguien **de Gwinnett**",
-   "Que escucha **al dueño**",
-   "Y contesta **tu mensaje**"
-  ],
-  "speak_body": "Detrás de DiniDine hay una persona real de Gwinnett que escucha a los dueños y contesta tus mensajes.",
-  "outro_title": "Escríbenos, te respondemos.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Detrás de DiniDine hay una persona real de Gwinnett que escucha a los dueños y contesta tus mensajes.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ],
-  "verify": [
-   "Confirma que quieres decir «una persona real» (eres tú). Cambia si prefieres hablar de un equipo."
-  ]
- },
- {
-  "id": "marca-menu-vivo",
-  "pillar": "marca",
-  "approved": false,
-  "needs": [],
-  "kicker": "DiniDine",
-  "hook": "Un menú **vivo**, no un papel",
-  "body_title": "Nuestra idea",
-  "points": [
-   "Cambia **cuando tu negocio cambia**",
-   "Se ve **en cualquier celular**",
-   "Siempre **el correcto**"
-  ],
-  "speak_body": "Nuestra idea es un menú vivo, no un papel. Cambia cuando tu negocio cambia y siempre es el correcto.",
-  "outro_title": "Un menú que acompaña.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Un menú vivo, no un papel: cambia cuando tu negocio cambia. Escríbenos.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
- },
- {
-  "id": "marca-dueno-primero",
-  "pillar": "marca",
-  "approved": false,
-  "needs": [],
-  "kicker": "DiniDine",
-  "hook": "Pensamos primero **en el dueño**",
-  "body_title": "Cómo trabajamos",
-  "points": [
-   "Escuchamos **antes de ofrecer**",
-   "Explicamos **sin prisa**",
-   "Tú decides **cuándo**"
-  ],
-  "speak_body": "Pensamos primero en el dueño. Escuchamos antes de ofrecer, explicamos sin prisa y tú decides cuándo.",
-  "outro_title": "Sin prisa.",
-  "cta": "Escríbenos por WhatsApp",
-  "speak_outro": "Escríbenos y lo vemos juntos.",
-  "caption": "Pensamos primero en el dueño: escuchamos antes de ofrecer, explicamos sin prisa y tú decides cuándo.",
-  "hashtags": [
-   "#restaurantes",
-   "#menudigital",
-   "#negociolatino",
-   "#Gwinnett"
-  ]
  }
 ]

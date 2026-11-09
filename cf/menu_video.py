@@ -93,10 +93,10 @@ def build_job(payload, seed, kind='top3', brand='dinidine', client=None, require
                    'speak': 'Tu menú, claro y en el celular de tus clientes. Escríbenos y lo vemos en tu restaurante.'})
     return {
         'id': jid, 'brand': brand, 'template': 'menu', 'client': client if require_consent else None, 'title': title,
-        'caption': f'Así se ve el menú digital de {name}. Platos y precios claros, sin menú impreso. '
-                   'Si quieres ver cómo quedaría el tuyo, escríbenos.',
+        'caption': f'El menú digital de {name}: platos y precios claros en el celular. '
+                   '¿Quieres ver cómo quedaría el tuyo? Escríbenos por mensaje.',
         'hashtags': ['#restaurantes', '#menudigital', '#negociolatino', '#Gwinnett'],
-        'cta_text': 'Escríbenos para verlo en tu restaurante',
+        'cta_text': 'Escríbenos para verlo en tu restaurante', 'ai_disclosure': False,
         'verify': ([f'Confirma que {name} sigue de acuerdo en aparecer en el video y que los precios están vigentes.']
                    if require_consent else
                    [f'Sale el nombre y el menú de {name}: revisa que los precios estén vigentes antes de aprobar.']) + [

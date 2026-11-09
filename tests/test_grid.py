@@ -61,12 +61,17 @@ class Bank(unittest.TestCase):
             if v is not None:
                 os.environ[k] = v
 
-    def test_nothing_renders_until_bank_is_approved(self):
-        bank = scripts.load_bank('dinidine')
+    def test_nothing_renders_until_a_piece_is_approved(self):
+        bank = [dict(s, approved=False) for s in scripts.load_bank('dinidine')]
         self.assertTrue(bank)
         self.assertEqual(scripts.pool(bank, 'consejo'), [])
         os.environ['WORKER_BANK_APPROVED'] = '1'
         self.assertEqual(len(scripts.pool(bank, 'consejo')), 11)
+
+    def test_shipped_bank_is_approved_and_every_pillar_has_a_full_cycle(self):
+        bank = scripts.load_bank('dinidine')
+        for pillar in ('consejo', 'producto', 'objecion', 'marca'):
+            self.assertGreaterEqual(len(scripts.pool(bank, pillar)), grid.cycle_weeks(75), pillar)
 
     def test_locked_pieces_need_their_gate(self):
         os.environ['WORKER_BANK_APPROVED'] = '1'
@@ -87,6 +92,19 @@ class Bank(unittest.TestCase):
             blob = ' ' + ' '.join(guardrails._texts(job)).lower() + ' '
             for bad in ('sin contrato', 'garantiz', '$', ' por mes ', '/mes', 'mensual', 'dólares', 'gratis por'):
                 self.assertNotIn(bad, blob, (s['id'], bad))
+
+    def test_short_hooks_short_captions_and_no_ai_line(self):
+        import re
+        wc = lambda t: len(re.sub(r'\*\*', '', t).split())
+        for s in scripts.load_bank('dinidine'):
+            job = scripts.build_job(s, D(2026, 11, 9))
+            self.assertLessEqual(wc(s['hook']), 8, s['id'])
+            self.assertLessEqual(wc(s['caption']), 30, s['id'])
+            self.assertLessEqual(wc(s['hook']) + wc(s['speak_body']) + wc(s['speak_outro']), 50, s['id'])
+            blob = ' '.join(guardrails._texts(job)).lower()
+            for bad in ('inteligencia artificial', 'voz generada', 'creada con ia', 'creado con ia'):
+                self.assertNotIn(bad, blob, s['id'])
+            self.assertIs(job['ai_disclosure'], False)
 
     def test_job_shape(self):
         s = scripts.load_bank('dinidine')[0]
@@ -131,8 +149,13 @@ class Week(unittest.TestCase):
         self.assertEqual(it['script']['id'], 'fecha-gracias-2026')
 
     def test_special_without_approval_is_empty_not_invented(self):
+        real = scripts.load_bank
+        scripts.load_bank = lambda b: [dict(s, approved=False) for s in real(b)]
         os.environ['WORKER_BANK_APPROVED'] = '0'
-        it = worker.resolve_week('dinidine', D(2026, 11, 25), 1, ALL, ['a'], now=NOW)[0]
+        try:
+            it = worker.resolve_week('dinidine', D(2026, 11, 25), 1, ALL, ['a'], now=NOW)[0]
+        finally:
+            scripts.load_bank = real
         self.assertEqual(it['kind'], 'empty')
 
     def test_thursday_falls_back_to_objection_while_agents_are_locked(self):

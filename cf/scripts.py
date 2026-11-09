@@ -59,7 +59,7 @@ def build_job(s, date, brand='dinidine', schedule=None):
     return {
         'id': jid, 'brand': brand, 'template': 'tutorial', 'client': None, 'title': plain(hook)[:100],
         'caption': s['caption'], 'hashtags': s.get('hashtags') or ['#restaurantes', '#menudigital', '#negociolatino'],
-        'cta_text': s['cta'], 'schedule': schedule or None,
+        'cta_text': s['cta'], 'ai_disclosure': False, 'schedule': schedule or None,
         'verify': list(s.get('verify') or []) + [f'Pieza del banco de guiones ({s["id"]}), programada para {d}.'],
         'scenes': scenes,
     }
