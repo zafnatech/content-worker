@@ -284,11 +284,15 @@ def build_filter(src_w, src_h, dur):
 def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur):
     dur = min(max(src_dur, MIN_SECONDS), MAX_SECONDS)
     loops = int(dur // src_dur) if src_dur < dur else 0
-    cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-stream_loop', str(loops), '-t', f'{dur:.2f}', '-i', clip_path]
+    # Every thread count is explicit: ffmpeg otherwise sizes decoders, filters and x264 by the host's CPU count, and on a
+    # big Render host that blew past the 2 GB of the 1c-2g plan ("Out of memory (used over 2Gi)", 10 Nov 2026).
+    cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-threads', '1', '-stream_loop', str(loops), '-t', f'{dur:.2f}', '-i', clip_path]
     for p in overlays:
-        cmd += ['-loop', '1', '-framerate', str(FPS), '-t', f'{dur:.2f}', '-i', p]
-    cmd += ['-i', music_path, '-filter_complex', build_filter(src_w, src_h, dur), '-map', '[v]', '-map', '[a]',
-            '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-r', str(FPS), '-pix_fmt', 'yuv420p',
+        cmd += ['-threads', '1', '-loop', '1', '-framerate', str(FPS), '-t', f'{dur:.2f}', '-i', p]
+    cmd += ['-threads', '1', '-i', music_path, '-filter_complex_threads', '1', '-filter_complex', build_filter(src_w, src_h, dur),
+            '-map', '[v]', '-map', '[a]',
+            '-c:v', 'libx264', '-threads', '2', '-x264-params', 'rc-lookahead=10:sliced-threads=0',
+            '-preset', 'veryfast', '-crf', '20', '-r', str(FPS), '-pix_fmt', 'yuv420p',
             '-c:a', 'aac', '-b:a', '160k', '-t', f'{dur:.2f}', '-movflags', '+faststart', out_path]
     tmp = out_path.replace('.mp4', '.tmp.mp4')
     cmd[-1] = tmp

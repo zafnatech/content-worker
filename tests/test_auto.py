@@ -163,6 +163,35 @@ class Clip(unittest.TestCase):
 
 
 @unittest.skipUnless(shutil.which('ffmpeg'), 'ffmpeg not installed')
+class Memory(unittest.TestCase):
+    def test_ffmpeg_threads_are_capped_so_a_big_host_cannot_exhaust_memory(self):
+        """10 Nov 2026: Render killed the cron ("Out of memory, used over 2Gi") because ffmpeg sized its threads by the host."""
+        seen = {}
+
+        class Done:
+            returncode = 0
+            stderr = ''
+
+        def fake_run(cmd, **kw):
+            seen['cmd'] = cmd
+            open(cmd[-1], 'wb').close()
+            return Done()
+
+        d = tempfile.mkdtemp()
+        real = clipvideo.subprocess.run
+        clipvideo.subprocess.run = fake_run
+        try:
+            clipvideo.compose('clip.mp4', ['a.png', 'b.png', 'c.png', 'd.png'], 'm.wav', os.path.join(d, 'o.mp4'), 1280, 720, 8.0)
+        finally:
+            clipvideo.subprocess.run = real
+            shutil.rmtree(d, ignore_errors=True)
+        cmd = seen['cmd']
+        self.assertEqual(cmd.count('-threads'), 7)   # clip + 4 overlays + music + encoder
+        self.assertIn('-filter_complex_threads', cmd)
+        self.assertEqual(cmd[cmd.index('-filter_complex_threads') + 1], '1')
+        self.assertEqual(cmd[cmd.index('libx264') + 1:cmd.index('libx264') + 3], ['-threads', '2'])
+
+
 class Render(unittest.TestCase):
     def test_end_to_end_with_a_synthetic_clip(self):
         import subprocess
