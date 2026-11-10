@@ -33,3 +33,12 @@ Each brand has `banned_phrases` (Brand Book "evitar"): a hit blocks the render (
 ## Rules
 - Never commit `.env`, `clients.json`, `channels.json`, media or card data. Keys live in the host's dashboard.
 - The brand kill switch and the approval gate live in the platform (panel "Contenido"); this worker never publishes.
+
+## Hourly `auto` mode + queue (10 Nov 2026)
+The Render cron runs every hour (`0 * * * *`) with `python3 worker.py auto`. Pieces come from `queue/*.json` (git-driven, no browser needed):
+- A job runs only in its window: `run_after <= now < run_after + window_min` (default 60). Start at :30 (`2026-11-11T06:30:00Z`) so the :00 tick lands inside.
+- Nothing due → the run exits in about a second (no network, no secrets used).
+- `type: "clip"` = real animated dish clip from the restaurant's profile + hook (<= 8 words, bank in `brands/dinidine/hooks.json`) + real name/price + closing line + one of 4 synthesized music styles (rotates by date). No AI call, no cost.
+- The result goes to the panel for approval (never published here). `post_date` + the grid's times for that weekday decide the scheduled slot.
+- `brands/dinidine/auto.json {"weekly": true}` brings back the Saturday 11:00 UTC week plan (script bank + menu videos). Off by default.
+- Not built yet (will raise "tipo no soportado"): carousels, photos, screen recordings, Gemini-generated pieces (needs a monthly spend cap first).

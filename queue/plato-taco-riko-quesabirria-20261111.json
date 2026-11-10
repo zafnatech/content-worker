@@ -1,0 +1,21 @@
+{
+ "id": "plato-taco-riko-quesabirria-20261111",
+ "type": "clip",
+ "run_after": "2026-11-10T06:30:00Z",
+ "brand": "dinidine",
+ "client": "taco-riko",
+ "business_name": "Taco Riko",
+ "clip_url": "https://res.cloudinary.com/sty03mcj/video/upload/q_auto,w_720,ac_none/anim-quesabirrias.mp4",
+ "dish": "3 Quesabirria Tacos",
+ "price_minor": 1850,
+ "currency": "USD",
+ "price_type": "base",
+ "hook": "Mira este plato. Ahora dime que no.",
+ "end_title": "¿Tu menú se ve así?",
+ "end_sub": "DiniDine · menús digitales",
+ "music": "cumbia",
+ "caption": "Así se ve un plato en el menú digital de Taco Riko: en movimiento, con su precio, en el celular de tu cliente. ¿Tu menú antoja así? Escríbenos.",
+ "hashtags": ["menudigital", "restaurantes", "gwinnett", "quesabirria", "dinidine"],
+ "cta": "Escríbenos por WhatsApp",
+ "post_date": "2026-11-11"
+}

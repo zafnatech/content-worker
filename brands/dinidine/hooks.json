@@ -1,0 +1,100 @@
+{
+ "note": "Subset of Contenido/Banco de 100 Hooks DiniDine (9 nov 2026) usable on dish clips. <= 8 words; {restaurante}/{plato} filled with real data.",
+ "hooks": [
+  {
+   "id": "h31",
+   "text": "Mira este plato. Ahora dime que no.",
+   "type": "antojo"
+  },
+  {
+   "id": "h32",
+   "text": "Esto se antoja más que cualquier foto.",
+   "type": "antojo"
+  },
+  {
+   "id": "h33",
+   "text": "Así se ve un plato en movimiento.",
+   "type": "antojo"
+  },
+  {
+   "id": "h34",
+   "text": "Pídelo con los ojos primero.",
+   "type": "antojo"
+  },
+  {
+   "id": "h35",
+   "text": "El primer bocado entra por los ojos.",
+   "type": "antojo"
+  },
+  {
+   "id": "h36",
+   "text": "Esto ve tu cliente en el celular.",
+   "type": "antojo"
+  },
+  {
+   "id": "h38",
+   "text": "Así se ve el menú en el celular.",
+   "type": "antojo"
+  },
+  {
+   "id": "h39",
+   "text": "Antes de pedir, ya quiere probarlo.",
+   "type": "antojo"
+  },
+  {
+   "id": "h41",
+   "text": "Tu plato más bonito, en movimiento.",
+   "type": "antojo"
+  },
+  {
+   "id": "h42",
+   "text": "¿Hambre? Espera a ver el siguiente.",
+   "type": "antojo"
+  },
+  {
+   "id": "h43",
+   "text": "Esto no es una foto. Mira bien.",
+   "type": "antojo"
+  },
+  {
+   "id": "h44",
+   "text": "Un menú que se antoja se pide.",
+   "type": "antojo"
+  },
+  {
+   "id": "h45",
+   "text": "Scroll lento. Plato rápido.",
+   "type": "antojo"
+  },
+  {
+   "id": "h87",
+   "text": "{restaurante}: así se ve su menú.",
+   "type": "real"
+  },
+  {
+   "id": "h88",
+   "text": "{plato} de {restaurante}. Mira esto.",
+   "type": "real"
+  },
+  {
+   "id": "h91",
+   "text": "Esto se pide en {restaurante}.",
+   "type": "real"
+  },
+  {
+   "id": "h92",
+   "text": "{restaurante} cocina así.",
+   "type": "real"
+  },
+  {
+   "id": "h98",
+   "text": "{restaurante} en tu celular.",
+   "type": "real"
+  },
+  {
+   "id": "h99",
+   "text": "Esto sale de la cocina de {restaurante}.",
+   "type": "real"
+  }
+ ]
+}

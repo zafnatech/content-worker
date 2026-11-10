@@ -6,6 +6,9 @@ the kill switch and the approval live in the platform.
   python3 worker.py run                      # the week ahead from brands/<brand>/grid.json (weekly cron on Render);
                                              # WORKER_MODE=legacy goes back to "a menu video per client per run"
   python3 worker.py plan [--date D] [--days N]   # prints the calendar (no render, no cost)
+  python3 worker.py auto [--now ISO] [--dry]     # HOURLY cron: renders queue/*.json jobs whose time window is open right now
+                                                 # (cf/autoq.py) and, only if brands/<brand>/auto.json has weekly=true, the old
+                                                 # Saturday 11:00 UTC week plan. Nothing due = exits in a second, no network.
 
 Env (host dashboard only, never git/chat):
   DINIDINE_API_URL, DINIDINE_API_KEY        read-only menu key (scope menu:read)
@@ -30,7 +33,7 @@ os.chdir(HERE)
 
 from cf.env import load_env  # noqa: E402
 load_env()
-from cf import menu_video, guardrails, grid as gridmod, scripts as scriptmod  # noqa: E402
+from cf import menu_video, guardrails, grid as gridmod, scripts as scriptmod, autoq, clipvideo  # noqa: E402
 
 
 def log(msg):
@@ -230,6 +233,77 @@ def run_week(start=None, days=7, deps=None, dry=False):
     return 1 if errors else 0
 
 
+def render_clip(job, out_dir):
+    """Clip pieces render in-process: ffmpeg does the heavy work in its own process and Pillow only draws 4 PNGs."""
+    try:
+        return clipvideo.render(job, out_dir, date_ordinal=job.get('_ordinal'))
+    except clipvideo.ClipError as e:
+        raise RuntimeError(str(e))
+
+
+def clip_schedule(job, brand, networks, now):
+    """Explicit job['schedule'] {network: iso}, or post_date (+ optional times) resolved with the brand grid's times for that
+    weekday. Past times are dropped; no usable time -> None (the platform then picks the next free slot)."""
+    if isinstance(job.get('schedule'), dict) and job['schedule']:
+        return job['schedule']
+    if not job.get('post_date'):
+        return None
+    g = gridmod.load_grid(brand) or {}
+    tz = g.get('timezone', 'America/New_York')
+    d = datetime.date.fromisoformat(job['post_date'])
+    times = dict(job.get('times') or {})
+    if not times:
+        wk = (g.get('weekly') or {}).get(gridmod.DAYS[d.weekday()]) or {}
+        times = dict(wk.get('times') or g.get('special_times') or {})
+    limit = (now + datetime.timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:00Z')
+    sched = {n: gridmod.to_utc_iso(d, t, tz) for n, t in times.items() if not networks or n in networks}
+    return {n: t for n, t in sched.items() if t >= limit} or None
+
+
+def run_auto(now=None, deps=None, dry=False, queue_dir=None):
+    """Hourly entry point. Returns the process exit code (1 only when a job that was due failed)."""
+    d = dict(deps or {})
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    brand = os.environ.get('WORKER_BRAND', 'dinidine')
+    due, upcoming, missed, broken = autoq.split(autoq.load(queue_dir), now)
+    for path, err in broken:
+        log(f'[aviso] {os.path.basename(path)}: {err}')
+    if missed:
+        log(f'[aviso] {len(missed)} trabajo(s) de la cola cuya ventana ya pasó (no se ejecutan): ' + ', '.join(j['id'] for _, j in missed[-5:]))
+    weekly = False
+    try:
+        with open(os.path.join(HERE, 'brands', brand, 'auto.json'), encoding='utf-8') as f:
+            weekly = bool(json.load(f).get('weekly'))
+    except (OSError, ValueError):
+        pass
+    weekly = weekly and now.weekday() == 5 and now.hour == 11
+    if not due and not weekly:
+        nxt = upcoming[0][1]['_start'].strftime('%Y-%m-%d %H:%MZ') if upcoming else 'ninguno'
+        log(f'{now.strftime("%Y-%m-%d %H:%MZ")}: nada pendiente. Próximo trabajo en la cola: {nxt}.')
+        return 0
+    errors = 0
+    if due:
+        try:
+            networks = {c['network'] for c in d.get('channels', load_channels)().get('channels', []) if c.get('enabled')}
+        except Exception as e:
+            log(f'[error] no pude leer los canales ({e})')
+            return 1
+        for path, job in due:
+            job = {k: v for k, v in job.items() if not k.startswith('_')}
+            job.setdefault('brand', brand)
+            job['_ordinal'] = now.date().toordinal()
+            job['schedule'] = clip_schedule(job, job['brand'], networks, now)
+            deps2 = dict(d)
+            deps2['render'] = d.get('render_clip', render_clip)
+            st, msg, _ = finish(job['id'], job, deps2, dry)
+            errors += st == 'error'
+            log(f'[{st}] {msg}')
+    if weekly:
+        log('Sábado 11:00 UTC y weekly=true: planeo la semana.')
+        errors += run_week(None, 7, d, dry) != 0
+    return 1 if errors else 0
+
+
 def show_plan(start, days, deps=None):
     brand = os.environ.get('WORKER_BRAND', 'dinidine')
     d = dict(deps or {})
@@ -290,6 +364,9 @@ if __name__ == '__main__':
     mk.add_argument('--kind', default='top3', choices=menu_video.KINDS)
     mk.add_argument('--date', default=datetime.date.today().isoformat())
     mk.add_argument('--dry', action='store_true')
+    au = sub.add_parser('auto')
+    au.add_argument('--now', help='ISO UTC, for tests: 2026-11-10T05:00:00Z')
+    au.add_argument('--dry', action='store_true')
     rn = sub.add_parser('run')
     rn.add_argument('--date')
     rn.add_argument('--dry', action='store_true')
@@ -301,6 +378,8 @@ if __name__ == '__main__':
         st, msg, _ = make_one(a.client, a.kind, a.date, os.environ.get('WORKER_BRAND', 'dinidine'), a.dry)
         log(f'[{st}] {msg}')
         sys.exit(1 if st == 'error' else 0)
+    if a.cmd == 'auto':
+        sys.exit(run_auto(autoq.parse_ts(a.now) if a.now else None, dry=a.dry))
     if a.cmd == 'plan':
         show_plan(datetime.date.fromisoformat(a.date) if a.date else datetime.date.today(), a.days)
         sys.exit(0)

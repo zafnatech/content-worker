@@ -6,6 +6,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 # Secrets (ELEVENLABS_*, CLOUDINARY_*, CONTENT_INGEST_*) come ONLY from the host's environment variables, never from git.
-# Daily mode v0: one menu video per client in WORKER_CLIENTS, registered in the panel for approval (never published here).
+# Hourly `auto` mode: renders queue/*.json jobs whose time window is open (cf/autoq.py); nothing due = exits in a second. Registered in the panel for approval, never published here.
 # On Render: Cron Job with this image; the schedule lives in the dashboard.
-CMD ["python3", "worker.py", "run"]
+CMD ["python3", "worker.py", "auto"]

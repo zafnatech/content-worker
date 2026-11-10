@@ -1,0 +1,4 @@
+{
+ "weekly": false,
+ "note": "weekly=true brings back the Saturday 11:00 UTC planning of the old grid (script bank + menu videos). Off by default (Jonathan, 10 Nov): pieces come from queue/*.json."
+}
