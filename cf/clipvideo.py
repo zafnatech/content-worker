@@ -69,11 +69,29 @@ def pick_hook(job, brand_slug):
     return hook
 
 
+PAGE_HOSTS = ('.zafnatech.com', '.digidine.us', '.dinidine.com')   # + WORKER_PAGE_HOSTS (comma list) for a restaurant's own domain
+
+
+def page_host_ok(url):
+    """A public https page of ours (or of a client domain listed in WORKER_PAGE_HOSTS). Never an arbitrary site."""
+    from urllib.parse import urlparse
+    u = urlparse(str(url))
+    host = (u.hostname or '').lower()
+    if u.scheme != 'https' or not host or u.username or u.password:
+        return False
+    extra = tuple(h.strip().lower() for h in os.environ.get('WORKER_PAGE_HOSTS', '').split(',') if h.strip())
+    return any(host == h.lstrip('.') or host.endswith(h if h.startswith('.') else '.' + h) for h in PAGE_HOSTS + extra)
+
+
 def validate(job):
-    missing = [k for k in ('id', 'clip_url', 'dish', 'caption') if not job.get(k)]
+    source = 'page_url' if job.get('page_url') else 'clip_url'
+    missing = [k for k in ('id', source, 'dish', 'caption') if not job.get(k)]
     if missing:
         raise ClipError('faltan campos: ' + ', '.join(missing))
-    if not str(job['clip_url']).startswith('https://'):
+    if source == 'page_url':
+        if not page_host_ok(job['page_url']):
+            raise ClipError('page_url debe ser una página https pública de DiniDine (o de un dominio en WORKER_PAGE_HOSTS)')
+    elif not str(job['clip_url']).startswith('https://'):
         raise ClipError('clip_url debe ser https')
     if not re.fullmatch(r'[a-z0-9][a-z0-9-]{2,90}', job['id']):
         raise ClipError('id inválido (minúsculas, números y guiones)')
@@ -122,6 +140,16 @@ def download(url, dest, opener=urllib.request.urlopen):
         except (urllib.error.URLError, OSError, ClipError, ValueError) as e:
             last = e
     raise ClipError(f'no pude bajar el clip ({last})')
+
+
+def capture_page(url, dest, seconds=8.0):
+    import sys
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    try:
+        from connectors import capture
+        capture.capture(url, dest, seconds=min(max(seconds, MIN_SECONDS), MAX_SECONDS - 3))
+    except Exception as e:   # Chromium missing, page down, timeout...
+        raise ClipError(f'no pude grabar la pantalla de {url} ({type(e).__name__}: {e})')
 
 
 def probe(path):
@@ -319,7 +347,12 @@ def render(job, out_dir, date_ordinal=None, fetch=download, work_dir=None):
     work = work_dir or os.path.join(out_dir, '_work')
     os.makedirs(work, exist_ok=True)
     clip = os.path.join(work, 'clip.mp4')
-    used_url = fetch(job['clip_url'], clip)
+    if job.get('page_url'):
+        # Screen recording of a public menu: headless Chromium at phone size, no login, nothing typed (connectors/capture.py).
+        used_url = job['page_url']
+        capture_page(used_url, clip, float(job.get('seconds') or 8))
+    else:
+        used_url = fetch(job['clip_url'], clip)
     w, h, d = probe(clip)
     price = fmt_price(job.get('price_minor'), job.get('currency', 'USD'), job.get('price_type', 'base'))
     ov = [os.path.join(work, n) for n in ('base.png', 'hook.png', 'info.png', 'end.png')]

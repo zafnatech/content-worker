@@ -163,6 +163,34 @@ class Clip(unittest.TestCase):
 
 
 @unittest.skipUnless(shutil.which('ffmpeg'), 'ffmpeg not installed')
+class PageJob(unittest.TestCase):
+    def test_page_url_is_limited_to_our_public_https_pages(self):
+        base = job(page_url='https://tacoriko.zafnatech.com/')
+        base.pop('clip_url')
+        clipvideo.validate(base)
+        for bad in ('http://tacoriko.zafnatech.com/', 'https://evil.com/', 'https://a.zafnatech.com.evil.com/', 'https://u:p@a.zafnatech.com/'):
+            with self.assertRaises(clipvideo.ClipError):
+                clipvideo.validate(dict(base, page_url=bad))
+
+    def test_page_job_records_instead_of_downloading(self):
+        d = tempfile.mkdtemp()
+        seen = {}
+        real = clipvideo.capture_page
+        clipvideo.capture_page = lambda url, dest, seconds=8: (seen.update(url=url), shutil.copy(os.path.join(d, 'src.mp4'), dest))
+        try:
+            import subprocess
+            subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', 'testsrc2=size=540x960:rate=30:duration=8',
+                            '-c:v', 'libx264', '-pix_fmt', 'yuv420p', os.path.join(d, 'src.mp4')], check=True)
+            j = job(page_url='https://tacoriko.zafnatech.com/', hook='Tu cliente ve esto al escanear.')
+            j.pop('clip_url')
+            _, m = clipvideo.render(j, os.path.join(d, 'out'), date_ordinal=1)
+            self.assertEqual(seen['url'], 'https://tacoriko.zafnatech.com/')
+            self.assertEqual(m['source_clip'], 'https://tacoriko.zafnatech.com/')
+        finally:
+            clipvideo.capture_page = real
+            shutil.rmtree(d, ignore_errors=True)
+
+
 class Memory(unittest.TestCase):
     def test_ffmpeg_threads_are_capped_so_a_big_host_cannot_exhaust_memory(self):
         """10 Nov 2026: Render killed the cron ("Out of memory, used over 2Gi") because ffmpeg sized its threads by the host."""
