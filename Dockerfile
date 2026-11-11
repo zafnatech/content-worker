@@ -1,5 +1,5 @@
 # Content worker: renders vertical videos (Pillow + numpy + ffmpeg). Chromium (Playwright) records public menu pages on a phone viewport (connectors/capture.py).
-FROM python:3.12-slim
+FROM python:3.12-slim-bookworm
 RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY requirements.txt .
