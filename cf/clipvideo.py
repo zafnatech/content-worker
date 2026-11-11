@@ -147,7 +147,7 @@ def capture_page(url, dest, seconds=8.0):
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     try:
         from connectors import capture
-        capture.capture(url, dest, seconds=min(max(seconds, MIN_SECONDS), MAX_SECONDS - 3))
+        capture.capture(url, dest, seconds=min(max(seconds, MIN_SECONDS), MAX_SECONDS - 3), size=(1170, 2082), scale=3)
     except Exception as e:   # Chromium missing, page down, timeout...
         raise ClipError(f'no pude grabar la pantalla de {url} ({type(e).__name__}: {e})')
 
@@ -224,6 +224,28 @@ def base_png(brand, path):
     img.save(path)
 
 
+PHONE = (260, 500, 560, 996)   # x, y, w, h of the screen inside the 1080x1920 frame (inside the platforms' safe zones)
+
+
+def phone_base_png(brand, path):
+    """Dark background + phone bezel with a transparent screen hole where the page recording shows through."""
+    x, y, w, h = PHONE
+    img = Image.new('RGBA', (W, H), brand.INK + (255,))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([x - 22, y - 22, x + w + 22, y + h + 22], radius=78, fill=(20, 20, 22, 255), outline=brand.ACC + (255,), width=4)
+    mask = Image.new('L', (W, H), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([x, y, x + w, y + h], radius=56, fill=255)
+    img.paste((0, 0, 0, 0), (0, 0), mask)
+    if brand.logo is not None:
+        chip = Image.new('RGBA', (300, 110), (0, 0, 0, 0))
+        ImageDraw.Draw(chip).rounded_rectangle([0, 0, 299, 109], radius=34, fill=(251, 247, 238, 240))
+        lg = brand.logo.copy()
+        lg.thumbnail((236, 70), Image.LANCZOS)
+        chip.paste(lg, ((300 - lg.width) // 2, (110 - lg.height) // 2), lg)
+        img.alpha_composite(chip, (56, 64))
+    img.save(path)
+
+
 def hook_png(brand, text, path):
     img = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
@@ -284,11 +306,15 @@ def timings(dur):
     return hook_end, dur - end_len
 
 
-def build_filter(src_w, src_h, dur):
+def build_filter(src_w, src_h, dur, phone=False):
     """filter_complex for inputs: 0 clip, 1 base.png, 2 hook.png, 3 info.png, 4 end.png, 5 music.
     Portrait footage fills the frame; landscape/square footage sits in a 1080x1000 window over a blurred copy of itself."""
     hook_end, end_start = timings(dur)
-    if src_w / src_h <= 0.75:
+    if phone:
+        px, py, pw, ph = PHONE
+        bg = (f'[0:v]fps={FPS},setpts=PTS-STARTPTS,scale={pw}:{ph}:force_original_aspect_ratio=increase,crop={pw}:{ph},setsar=1,'
+              f'pad={W}:{H}:{px}:{py}:color=black[bg];')
+    elif src_w / src_h <= 0.75:
         bg = f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS},setpts=PTS-STARTPTS[bg];'
     else:
         bg = (f'[0:v]fps={FPS},setpts=PTS-STARTPTS,split[a][b];'
@@ -309,7 +335,7 @@ def build_filter(src_w, src_h, dur):
     return g
 
 
-def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur):
+def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur, phone=False):
     dur = min(max(src_dur, MIN_SECONDS), MAX_SECONDS)
     loops = int(dur // src_dur) if src_dur < dur else 0
     # Every thread count is explicit: ffmpeg otherwise sizes decoders, filters and x264 by the host's CPU count, and on a
@@ -317,7 +343,7 @@ def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur):
     cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-threads', '1', '-stream_loop', str(loops), '-t', f'{dur:.2f}', '-i', clip_path]
     for p in overlays:
         cmd += ['-threads', '1', '-loop', '1', '-framerate', str(FPS), '-t', f'{dur:.2f}', '-i', p]
-    cmd += ['-threads', '1', '-i', music_path, '-filter_complex_threads', '1', '-filter_complex', build_filter(src_w, src_h, dur),
+    cmd += ['-threads', '1', '-i', music_path, '-filter_complex_threads', '1', '-filter_complex', build_filter(src_w, src_h, dur, phone),
             '-map', '[v]', '-map', '[a]',
             '-c:v', 'libx264', '-threads', '2', '-x264-params', 'rc-lookahead=10:sliced-threads=0',
             '-preset', 'veryfast', '-crf', '20', '-r', str(FPS), '-pix_fmt', 'yuv420p',
@@ -356,16 +382,21 @@ def render(job, out_dir, date_ordinal=None, fetch=download, work_dir=None):
     w, h, d = probe(clip)
     price = fmt_price(job.get('price_minor'), job.get('currency', 'USD'), job.get('price_type', 'base'))
     ov = [os.path.join(work, n) for n in ('base.png', 'hook.png', 'info.png', 'end.png')]
-    base_png(brand, ov[0])
+    phone = bool(job.get('page_url'))
+    if phone:
+        phone_base_png(brand, ov[0])
+        Image.new('RGBA', (W, H), (0, 0, 0, 0)).save(ov[2])   # no info plate: it would cover the menu
+    else:
+        base_png(brand, ov[0])
+        info_png(brand, job['dish'], price, job.get('business_name', ''), ov[2])
     hook_png(brand, hook, ov[1])
-    info_png(brand, job['dish'], price, job.get('business_name', ''), ov[2])
     end_png(brand, job.get('end_title') or '¿Tu menú se ve así?', job.get('end_sub') or 'DiniDine · menús digitales', ov[3])
     ordinal = date_ordinal if date_ordinal is not None else datetime.date.today().toordinal()
     style = job.get('music') or style_for(ordinal)
     music = os.path.join(work, 'music.wav')
     make_preset(music, min(max(d, MIN_SECONDS), MAX_SECONDS) + 0.3, style, seed=ordinal)
     mp4 = os.path.join(out_dir, job['id'] + '.mp4')
-    dur = compose(clip, ov, music, mp4, w, h, d)
+    dur = compose(clip, ov, music, mp4, w, h, d, phone=phone)
     verify = list(job.get('verify') or [])
     verify.append('Clip animado a partir de la foto real del plato: revisa la etiqueta de contenido IA de cada red antes de aprobar.')
     manifest = {'id': job['id'], 'title': f'{job["dish"]} · {job.get("business_name", "")}'.strip(' ·')[:100],
