@@ -150,6 +150,35 @@ def capture_page(url, dest, seconds=8.0):
         capture.capture(url, dest, seconds=min(max(seconds, MIN_SECONDS), MAX_SECONDS - 3), size=(1170, 2082), scale=3)
     except Exception as e:   # Chromium missing, page down, timeout...
         raise ClipError(f'no pude grabar la pantalla de {url} ({type(e).__name__}: {e})')
+    check_capture(dest, url)
+
+
+def frame_stats(path, n=6):
+    """(mean, std) of n tiny gray frames spread over the video, to tell a blank / loading screen from a real page."""
+    import numpy as np
+    dur = probe(path)[2]
+    out = []
+    for i in range(n):
+        t = max(0.0, dur * (i + 0.5) / n)
+        p = subprocess.run(['ffmpeg', '-v', 'error', '-ss', f'{t:.2f}', '-i', path, '-frames:v', '1', '-vf', 'scale=48:-1,format=gray',
+                            '-f', 'rawvideo', '-'], capture_output=True)
+        a = np.frombuffer(p.stdout, dtype=np.uint8).astype(float)
+        out.append((float(a.mean()), float(a.std()), a) if a.size else (0.0, 0.0, a))
+    return out
+
+
+def check_capture(path, url=''):
+    """Refuse a recording that is blank, a skeleton that never loaded, or frozen (the page never scrolled): a bad piece must not reach the panel."""
+    import numpy as np
+    st = frame_stats(path)
+    print('capture check', url, [(round(m), round(sd, 1)) for m, sd, _ in st], flush=True)
+    flat = sum(1 for m, sd, _ in st if sd < 6)
+    if flat >= len(st) // 2:
+        raise ClipError(f'la grabación de {url} salió en blanco o sin contenido (cuadros planos {flat}/{len(st)})')
+    arrs = [a for _, _, a in st if a.size]
+    moved = max((float(np.abs(a - b).mean()) for a in arrs for b in arrs), default=0.0)
+    if moved < 3.0:
+        raise ClipError(f'la grabación de {url} no se mueve (la página no cargó o no hizo scroll; cambio {moved:.1f})')
 
 
 def probe(path):

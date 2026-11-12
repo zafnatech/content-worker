@@ -23,6 +23,19 @@ def ease(x):
     return x * x * (3 - 2 * x)
 
 
+SCROLLER_JS = '''() => {
+  let best = document.scrollingElement || document.documentElement, bestMax = best.scrollHeight - window.innerHeight;
+  for (const el of document.querySelectorAll('*')) {
+    const cs = getComputedStyle(el);
+    if (!/(auto|scroll)/.test(cs.overflowY)) continue;
+    const m = el.scrollHeight - el.clientHeight;
+    if (m > bestMax + 50 && el.clientHeight > window.innerHeight * 0.5) { best = el; bestMax = m; }
+  }
+  window.__cfTotal = () => Math.max(0, bestMax);
+  window.__cfScroll = (y) => best.scrollTo(0, y);
+}'''
+
+
 def capture(url, out_mp4, seconds=8.0, size=(1080, 1920), scale=2, wait=2.5, hold=1.0):
     from playwright.sync_api import sync_playwright
     vw, vh = size[0] // scale, size[1] // scale
@@ -30,15 +43,18 @@ def capture(url, out_mp4, seconds=8.0, size=(1080, 1920), scale=2, wait=2.5, hol
     try:
         with sync_playwright() as p:
             br = p.chromium.launch()
-            pg = br.new_page(viewport={'width': vw, 'height': vh}, device_scale_factor=scale, is_mobile=True, has_touch=True, locale='es-US')
+            pg = br.new_page(viewport={'width': vw, 'height': vh}, device_scale_factor=scale, is_mobile=True, has_touch=True, locale='es-US',
+                          user_agent='Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1')
             pg.goto(url, wait_until='networkidle', timeout=60000)
             pg.wait_for_timeout(int(wait * 1000))
-            total = pg.evaluate('Math.max(0, document.documentElement.scrollHeight - window.innerHeight)')
+            # Some menus scroll inside a container, not the window: find the tallest scrollable thing and drive that.
+            pg.evaluate(SCROLLER_JS)
+            total = pg.evaluate('window.__cfTotal()')
             n = int(seconds * FPS)
             nh = int(hold * FPS)  # still frames at the start and end
             for i in range(n):
                 u = 0.0 if i < nh else 1.0 if i >= n - nh else ease((i - nh) / max(1, n - 2 * nh - 1))
-                pg.evaluate(f'window.scrollTo(0,{total * u})')
+                pg.evaluate(f'window.__cfScroll({total * u})')
                 pg.wait_for_timeout(30)
                 pg.screenshot(path=os.path.join(tmp, f'{i:05d}.jpg'), type='jpeg', quality=92)
             br.close()

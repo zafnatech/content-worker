@@ -1,4 +1,4 @@
-import os, sys, json, shutil, tempfile, datetime, unittest
+import os, sys, json, shutil, subprocess, tempfile, datetime, unittest
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, HERE)
@@ -237,3 +237,19 @@ class Render(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CaptureGate(unittest.TestCase):
+    def _mk(self, d, vf):
+        out = os.path.join(d, 'c.mp4')
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', vf, '-t', '3', '-pix_fmt', 'yuv420p', out], check=True)
+        return out
+
+    def test_blank_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            with self.assertRaises(clipvideo.ClipError):
+                clipvideo.check_capture(self._mk(d, 'color=c=white:s=270x480:r=30'), 'x')
+
+    def test_moving_page_accepted(self):
+        with tempfile.TemporaryDirectory() as d:
+            clipvideo.check_capture(self._mk(d, 'testsrc2=s=270x480:r=30'), 'x')
