@@ -21,6 +21,8 @@ W, H, FPS = 1080, 1920, 30
 MAX_CLIP_BYTES = 120 * 1024 * 1024
 MAX_SECONDS = 15.0
 MIN_SECONDS = 7.0
+VOICE_DELAY_MS = 600
+VOICE_TAIL_S = 2.2   # picture keeps going after the last word (end card)
 
 
 class ClipError(Exception):
@@ -104,7 +106,8 @@ def validate(job):
 def public_text_job(job, hook):
     """What the guardrails read: everything a viewer will see or read."""
     return {'brand': job.get('brand', 'dinidine'), 'hook': hook, 'dish': job.get('dish'), 'caption': job.get('caption'),
-            'hashtags': job.get('hashtags', []), 'cta': job.get('cta'), 'end_title': job.get('end_title')}
+            'hashtags': job.get('hashtags', []), 'cta': job.get('cta'), 'end_title': job.get('end_title'),
+            'end_sub': job.get('end_sub'), 'voice_text': job.get('voice_text')}
 
 
 # ------------------------------------------------------------------------------------------------------------- download
@@ -335,7 +338,7 @@ def timings(dur):
     return hook_end, dur - end_len
 
 
-def build_filter(src_w, src_h, dur, phone=False):
+def build_filter(src_w, src_h, dur, phone=False, voice=False):
     """filter_complex for inputs: 0 clip, 1 base.png, 2 hook.png, 3 info.png, 4 end.png, 5 music.
     Portrait footage fills the frame; landscape/square footage sits in a 1080x1000 window over a blurred copy of itself."""
     hook_end, end_start = timings(dur)
@@ -360,19 +363,30 @@ def build_filter(src_w, src_h, dur, phone=False):
     g += fade(2, 0.15, hook_end - 0.28) + '[hk];[v1][hk]overlay=0:0[v2];'
     g += fade(3, hook_end - 0.1, end_start - 0.3) + '[inf];[v2][inf]overlay=0:0[v3];'
     g += fade(4, end_start) + '[en];[v3][en]overlay=0:0,format=yuv420p[v];'
-    g += f'[5:a]atrim=0:{dur:.2f},afade=t=in:d=0.3,afade=t=out:st={max(0, dur - 1.0):.2f}:d=1.0,volume=2.6,alimiter=limit=0.93[a]'
+    if voice:
+        # Dini's narration (input 6) starts just after the hook lands; the music sits underneath it.
+        g += (f'[5:a]atrim=0:{dur:.2f},afade=t=in:d=0.3,afade=t=out:st={max(0, dur - 1.0):.2f}:d=1.0,volume=0.9[m];'
+              f'[6:a]adelay={VOICE_DELAY_MS}|{VOICE_DELAY_MS},volume=1.5[vo];'
+              f'[m][vo]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.93[a]')
+    else:
+        g += f'[5:a]atrim=0:{dur:.2f},afade=t=in:d=0.3,afade=t=out:st={max(0, dur - 1.0):.2f}:d=1.0,volume=2.6,alimiter=limit=0.93[a]'
     return g
 
 
-def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur, phone=False):
+def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur, phone=False, voice_path=None, voice_dur=0.0):
     dur = min(max(src_dur, MIN_SECONDS), MAX_SECONDS)
+    if voice_path:
+        dur = min(max(dur, VOICE_DELAY_MS / 1000 + voice_dur + VOICE_TAIL_S), MAX_SECONDS)
     loops = int(dur // src_dur) if src_dur < dur else 0
     # Every thread count is explicit: ffmpeg otherwise sizes decoders, filters and x264 by the host's CPU count, and on a
     # big Render host that blew past the 2 GB of the 1c-2g plan ("Out of memory (used over 2Gi)", 10 Nov 2026).
     cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-threads', '1', '-stream_loop', str(loops), '-t', f'{dur:.2f}', '-i', clip_path]
     for p in overlays:
         cmd += ['-threads', '1', '-loop', '1', '-framerate', str(FPS), '-t', f'{dur:.2f}', '-i', p]
-    cmd += ['-threads', '1', '-i', music_path, '-filter_complex_threads', '1', '-filter_complex', build_filter(src_w, src_h, dur, phone),
+    cmd += ['-threads', '1', '-i', music_path]
+    if voice_path:
+        cmd += ['-threads', '1', '-i', voice_path]
+    cmd += ['-filter_complex_threads', '1', '-filter_complex', build_filter(src_w, src_h, dur, phone, bool(voice_path)),
             '-map', '[v]', '-map', '[a]',
             '-c:v', 'libx264', '-threads', '2', '-x264-params', 'rc-lookahead=10:sliced-threads=0',
             '-preset', 'veryfast', '-crf', '20', '-r', str(FPS), '-pix_fmt', 'yuv420p',
@@ -385,6 +399,31 @@ def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur, ph
     os.replace(tmp, out_path)
     return dur
 
+
+
+# ----------------------------------------------------------------------------------------------------------------- voice
+def job_voice(job, brand, work):
+    """Narration for the piece, or None when the job asks for none.
+    voice_file: an mp3 made in the ElevenLabs web UI (path on this machine).  voice_text: generated server-side with the
+    keys that live only in the environment.  A job that asks for a voice never silently renders without one."""
+    from . import voice as V
+    raw = os.path.join(work, 'voz.raw.mp3')
+    out = os.path.join(work, 'voz.mp3')
+    if job.get('voice_file'):
+        if not os.path.exists(job['voice_file']):
+            raise ClipError('voice_file no existe: ' + str(job['voice_file']))
+        raw = job['voice_file']
+    elif job.get('voice_text'):
+        text = job['voice_text']
+        for k, v in brand.voice_cfg.get('pronounce', {}).items():
+            text = text.replace(k, v)
+        tag = brand.voice_cfg.get('tag', '')
+        if not V.tts_api(f'{tag} {text}'.strip(), raw, brand):
+            raise ClipError('la voz de Dini no se pudo generar (falta ELEVENLABS_API_KEY / ELEVENLABS_VOICE_ID o el servicio no responde)')
+    else:
+        return None, 0.0
+    V.process_clip(raw, out, brand.voice_cfg.get('atempo', 1.15))
+    return out, V.probe(out)
 
 # ----------------------------------------------------------------------------------------------------------------- main
 def render(job, out_dir, date_ordinal=None, fetch=download, work_dir=None):
@@ -423,15 +462,19 @@ def render(job, out_dir, date_ordinal=None, fetch=download, work_dir=None):
     ordinal = date_ordinal if date_ordinal is not None else datetime.date.today().toordinal()
     style = job.get('music') or style_for(ordinal)
     music = os.path.join(work, 'music.wav')
-    make_preset(music, min(max(d, MIN_SECONDS), MAX_SECONDS) + 0.3, style, seed=ordinal)
+    with_voice = bool(job.get('voice_file') or job.get('voice_text'))
+    make_preset(music, (MAX_SECONDS if with_voice else min(max(d, MIN_SECONDS), MAX_SECONDS)) + 0.3, style, seed=ordinal)
     mp4 = os.path.join(out_dir, job['id'] + '.mp4')
-    dur = compose(clip, ov, music, mp4, w, h, d, phone=phone)
+    voice_path, voice_dur = job_voice(job, brand, work)
+    if voice_dur and voice_dur + VOICE_DELAY_MS / 1000 + 1.2 > MAX_SECONDS:
+        raise ClipError(f'la voz dura {voice_dur:.1f} s: no cabe en {MAX_SECONDS:.0f} s; acorta el texto')
+    dur = compose(clip, ov, music, mp4, w, h, d, phone=phone, voice_path=voice_path, voice_dur=voice_dur)
     verify = list(job.get('verify') or [])
     verify.append('Clip animado a partir de la foto real del plato: revisa la etiqueta de contenido IA de cada red antes de aprobar.')
     manifest = {'id': job['id'], 'title': f'{job["dish"]} · {job.get("business_name", "")}'.strip(' ·')[:100],
-                'voice_chars': 0, 'voice_cost_usd_est': 0.0, 'brand': brand_slug, 'client': job.get('client'),
+                'voice_chars': len(job.get('voice_text') or ''), 'voice_cost_usd_est': 0.0, 'brand': brand_slug, 'client': job.get('client'),
                 'consent': 'clip del perfil real del restaurante en la plataforma', 'draft': False,
-                'duration_s': round(dur, 1), 'voice': 'sin voz (texto + música)', 'caption': job['caption'],
+                'duration_s': round(dur, 1), 'voice': ('narración de Dini (voz de producción de video; no es una función del producto)' if voice_path else 'sin voz (texto + música)'), 'caption': job['caption'],
                 'hashtags': job.get('hashtags', []), 'cta': job.get('cta', ''), 'captions': job.get('captions', {}),
                 'titles': job.get('titles', {}), 'ai_disclosure': True, 'verify_before_publish': verify,
                 'schedule': job.get('schedule'), 'lineage': job.get('lineage'), 'file': mp4,

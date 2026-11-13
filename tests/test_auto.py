@@ -253,3 +253,22 @@ class CaptureGate(unittest.TestCase):
     def test_moving_page_accepted(self):
         with tempfile.TemporaryDirectory() as d:
             clipvideo.check_capture(self._mk(d, 'testsrc2=s=270x480:r=30'), 'x')
+
+
+class VoiceJob(unittest.TestCase):
+    def test_voice_text_without_keys_is_an_error_not_a_silent_video(self):
+        import os
+        from cf import clipvideo as cv
+        from cf.brand import Brand
+        for k in ('ELEVENLABS_API_KEY', 'ELEVENLABS_VOICE_ID'):
+            os.environ.pop(k, None)
+        with tempfile.TemporaryDirectory() as d:
+            with self.assertRaises(cv.ClipError):
+                cv.job_voice({'voice_text': 'Hola'}, Brand('dinidine'), d)
+
+    def test_no_voice_requested_returns_none(self):
+        import tempfile as t
+        from cf import clipvideo as cv
+        from cf.brand import Brand
+        with t.TemporaryDirectory() as d:
+            self.assertEqual(cv.job_voice({}, Brand('dinidine'), d), (None, 0.0))
