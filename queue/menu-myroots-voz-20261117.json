@@ -1,0 +1,31 @@
+{
+ "type": "clip",
+ "window_min": 90,
+ "brand": "dinidine",
+ "phone": true,
+ "phone_box": [
+  130,
+  330,
+  820,
+  1496
+ ],
+ "dish": "Así se ve su menú digital",
+ "end_sub": "Escríbenos · DiniDine",
+ "id": "menu-myroots-voz-20261117",
+ "run_after": "2026-11-17T04:30:00Z",
+ "business_name": "MyRoots Juice Bar & Kitchen",
+ "clip_file": "myroots-pantalla.mp4",
+ "hook": "Tus promos, a un toque.",
+ "voice_text": "El menú de MyRoots tiene botones para sus especiales de almuerzo y la promo del café de un dólar. El cliente los ve al instante.",
+ "end_title": "¿Y tus promos? Escríbenos.",
+ "caption": "El menú digital de MyRoots tiene botones para sus especiales de almuerzo y su promo del café. ¿Y tus promos? Escríbenos.",
+ "hashtags": [
+  "menudigital",
+  "restaurantes",
+  "gwinnett",
+  "dinidine",
+  "restaurantelatino"
+ ],
+ "cta": "Escríbenos por WhatsApp",
+ "post_date": "2026-11-17"
+}

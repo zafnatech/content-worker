@@ -1,0 +1,31 @@
+{
+ "type": "clip",
+ "window_min": 90,
+ "brand": "dinidine",
+ "phone": true,
+ "phone_box": [
+  130,
+  330,
+  820,
+  1496
+ ],
+ "dish": "Así se ve su menú digital",
+ "end_sub": "Escríbenos · DiniDine",
+ "id": "menu-el-coqui-voz-20261115",
+ "run_after": "2026-11-15T04:30:00Z",
+ "business_name": "El Coquí Restaurant",
+ "clip_file": "el-coqui-pantalla.mp4",
+ "hook": "Comida boricua, menú digital.",
+ "voice_text": "El menú de El Coquí, con sus entradas, platos, sándwiches, ensaladas y postres. Todo en el celular de tu cliente, con foto y precio.",
+ "end_title": "Tu menú también puede verse así.",
+ "caption": "El menú digital de El Coquí: entradas, platos, sándwiches, ensaladas y postres, con foto y precio. Tu menú también puede verse así. Escríbenos.",
+ "hashtags": [
+  "menudigital",
+  "restaurantes",
+  "gwinnett",
+  "dinidine",
+  "restaurantelatino"
+ ],
+ "cta": "Escríbenos por WhatsApp",
+ "post_date": "2026-11-15"
+}

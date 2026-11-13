@@ -1,0 +1,31 @@
+{
+ "type": "clip",
+ "window_min": 90,
+ "brand": "dinidine",
+ "phone": true,
+ "phone_box": [
+  130,
+  330,
+  820,
+  1496
+ ],
+ "dish": "Así se ve su menú digital",
+ "end_sub": "Escríbenos · DiniDine",
+ "id": "menu-los-azulejos-voz-20261116",
+ "run_after": "2026-11-16T04:30:00Z",
+ "business_name": "Los Azulejos",
+ "clip_file": "los-azulejos-pantalla.mp4",
+ "hook": "Mira estos platos.",
+ "voice_text": "Así se ve el menú de Los Azulejos: entradas, tacos, almuerzo y postres, con fotos grandes de cada plato.",
+ "end_title": "Te lo armamos así.",
+ "caption": "Así se ve el menú digital de Los Azulejos: entradas, tacos, almuerzo y postres con fotos grandes. Te lo armamos así. Escríbenos.",
+ "hashtags": [
+  "menudigital",
+  "restaurantes",
+  "gwinnett",
+  "dinidine",
+  "restaurantelatino"
+ ],
+ "cta": "Escríbenos por WhatsApp",
+ "post_date": "2026-11-16"
+}
