@@ -19,6 +19,7 @@ from .music import make_preset, style_for, STYLES
 
 W, H, FPS = 1080, 1920, 30
 MAX_CLIP_BYTES = 120 * 1024 * 1024
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAX_SECONDS = 15.0
 MIN_SECONDS = 7.0
 VOICE_DELAY_MS = 600
@@ -86,13 +87,18 @@ def page_host_ok(url):
 
 
 def validate(job):
-    source = 'page_url' if job.get('page_url') else 'clip_url'
+    source = 'page_url' if job.get('page_url') else ('clip_file' if job.get('clip_file') else 'clip_url')
     missing = [k for k in ('id', source, 'dish', 'caption') if not job.get(k)]
     if missing:
         raise ClipError('faltan campos: ' + ', '.join(missing))
     if source == 'page_url':
         if not page_host_ok(job['page_url']):
             raise ClipError('page_url debe ser una página https pública de DiniDine (o de un dominio en WORKER_PAGE_HOSTS)')
+    elif source == 'clip_file':
+        media = os.path.join(ROOT_DIR, 'media')
+        full = os.path.realpath(os.path.join(media, str(job['clip_file'])))
+        if not full.startswith(os.path.realpath(media) + os.sep) or not os.path.isfile(full):
+            raise ClipError('clip_file debe ser un archivo dentro de media/ del repositorio')
     elif not str(job['clip_url']).startswith('https://'):
         raise ClipError('clip_url debe ser https')
     if not re.fullmatch(r'[a-z0-9][a-z0-9-]{2,90}', job['id']):
@@ -441,7 +447,24 @@ def render(job, out_dir, date_ordinal=None, fetch=download, work_dir=None):
     work = work_dir or os.path.join(out_dir, '_work')
     os.makedirs(work, exist_ok=True)
     clip = os.path.join(work, 'clip.mp4')
-    if job.get('page_url'):
+    global PHONE
+    old_phone = PHONE
+    if job.get('phone_box'):
+        PHONE = tuple(int(v) for v in job['phone_box'])
+    try:
+        return _render(job, out_dir, date_ordinal, fetch, work_dir, brand_slug, hook, brand, work, clip)
+    finally:
+        PHONE = old_phone
+
+
+def _render(job, out_dir, date_ordinal, fetch, work_dir, brand_slug, hook, brand, work, clip):
+    import datetime
+    if job.get('clip_file'):
+        # Screen recording made by hand and committed under media/ (a real phone recording of a real menu).
+        import shutil
+        shutil.copy(os.path.join(ROOT_DIR, 'media', job['clip_file']), clip)
+        used_url = 'media/' + job['clip_file']
+    elif job.get('page_url'):
         # Screen recording of a public menu: headless Chromium at phone size, no login, nothing typed (connectors/capture.py).
         used_url = job['page_url']
         capture_page(used_url, clip, float(job.get('seconds') or 8))
@@ -450,7 +473,7 @@ def render(job, out_dir, date_ordinal=None, fetch=download, work_dir=None):
     w, h, d = probe(clip)
     price = fmt_price(job.get('price_minor'), job.get('currency', 'USD'), job.get('price_type', 'base'))
     ov = [os.path.join(work, n) for n in ('base.png', 'hook.png', 'info.png', 'end.png')]
-    phone = bool(job.get('page_url'))
+    phone = bool(job.get('page_url') or job.get('phone'))
     if phone:
         phone_base_png(brand, ov[0])
         Image.new('RGBA', (W, H), (0, 0, 0, 0)).save(ov[2])   # no info plate: it would cover the menu
@@ -470,10 +493,13 @@ def render(job, out_dir, date_ordinal=None, fetch=download, work_dir=None):
         raise ClipError(f'la voz dura {voice_dur:.1f} s: no cabe en {MAX_SECONDS:.0f} s; acorta el texto')
     dur = compose(clip, ov, music, mp4, w, h, d, phone=phone, voice_path=voice_path, voice_dur=voice_dur)
     verify = list(job.get('verify') or [])
-    verify.append('Clip animado a partir de la foto real del plato: revisa la etiqueta de contenido IA de cada red antes de aprobar.')
+    if phone:
+        verify.append('Grabación de pantalla del menú público del restaurante con narración de Dini (voz generada por IA): revisa la etiqueta de contenido IA de cada red y que no aparezca ningún dato personal.')
+    else:
+        verify.append('Clip animado a partir de la foto real del plato: revisa la etiqueta de contenido IA de cada red antes de aprobar.')
     manifest = {'id': job['id'], 'title': f'{job["dish"]} · {job.get("business_name", "")}'.strip(' ·')[:100],
                 'voice_chars': len(job.get('voice_text') or ''), 'voice_cost_usd_est': 0.0, 'brand': brand_slug, 'client': job.get('client'),
-                'consent': 'clip del perfil real del restaurante en la plataforma', 'draft': False,
+                'consent': ('menú público del restaurante en la plataforma' if phone else 'clip del perfil real del restaurante en la plataforma'), 'draft': False,
                 'duration_s': round(dur, 1), 'voice': ('narración de Dini (voz de producción de video; no es una función del producto)' if voice_path else 'sin voz (texto + música)'), 'caption': job['caption'],
                 'hashtags': job.get('hashtags', []), 'cta': job.get('cta', ''), 'captions': job.get('captions', {}),
                 'titles': job.get('titles', {}), 'ai_disclosure': True, 'verify_before_publish': verify,

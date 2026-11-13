@@ -1,0 +1,22 @@
+{
+ "id": "menu-la-valentina-voz-20261113",
+ "type": "clip",
+ "run_after": "2026-11-13T04:30:00Z",
+ "window_min": 90,
+ "brand": "dinidine",
+ "client": "la-valentina-by-dolche",
+ "business_name": "La Valentina by Dolche",
+ "clip_file": "la-valentina-pantalla.mp4",
+ "phone": true,
+ "phone_box": [130, 330, 820, 1496],
+ "dish": "Así se ve su menú digital",
+ "hook": "Un menú que antoja.",
+ "voice_text": "Así se ve el menú de La Valentina. Fotos de sus platos, precios claros, y en español o en inglés. Menús digitales de DiniDine.",
+ "end_title": "¿Quieres un menú así?",
+ "end_sub": "Escríbenos · DiniDine",
+ "music": "urbano",
+ "caption": "Así se ve el menú digital de La Valentina by Dolche: fotos de sus platos, precios claros y en español o inglés. ¿Quieres un menú así? Escríbenos.",
+ "hashtags": ["menudigital", "restaurantes", "gwinnett", "dinidine", "restaurantelatino"],
+ "cta": "Escríbenos por WhatsApp",
+ "post_date": "2026-11-13"
+}
