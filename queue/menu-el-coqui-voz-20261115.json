@@ -15,10 +15,10 @@
  "run_after": "2026-11-15T04:30:00Z",
  "business_name": "El Coquí Restaurant",
  "clip_file": "el-coqui-pantalla.mp4",
- "hook": "Comida boricua, menú digital.",
- "voice_text": "El menú de El Coquí, con sus entradas, platos, sándwiches, ensaladas y postres. Todo en el celular de tu cliente, con foto y precio.",
+ "hook": "Sabor boricua en tu celular.",
+ "voice_text": "El Coquí, sabor boricua. El chillo, frito con pimienta de limón. La Tri-pleta, en pan cubano prensado. Y de postre, flan de queso.",
  "end_title": "Tu menú también puede verse así.",
- "caption": "El menú digital de El Coquí: entradas, platos, sándwiches, ensaladas y postres, con foto y precio. Tu menú también puede verse así. Escríbenos.",
+ "caption": "El menú digital de El Coquí: el chillo frito con pimienta de limón, la Tri-pleta en pan cubano prensado y de postre, flan de queso. Tu menú también puede verse así. Escríbenos.",
  "hashtags": [
   "menudigital",
   "restaurantes",

@@ -23,6 +23,8 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAX_SECONDS = 15.0
 MIN_SECONDS = 7.0
 VOICE_DELAY_MS = 600
+BEE_XY = (845, 14)
+BEE_W = 180
 VOICE_TAIL_S = 2.2   # picture keeps going after the last word (end card)
 
 
@@ -344,7 +346,7 @@ def timings(dur):
     return hook_end, dur - end_len
 
 
-def build_filter(src_w, src_h, dur, phone=False, voice=False):
+def build_filter(src_w, src_h, dur, phone=False, voice=False, voice_dur=0.0, bee=False):
     """filter_complex for inputs: 0 clip, 1 base.png, 2 hook.png, 3 info.png, 4 end.png, 5 music.
     Portrait footage fills the frame; landscape/square footage sits in a 1080x1000 window over a blurred copy of itself."""
     hook_end, end_start = timings(dur)
@@ -368,6 +370,11 @@ def build_filter(src_w, src_h, dur, phone=False, voice=False):
     g += '[bg][1:v]overlay=0:0[v1];'
     g += fade(2, 0.15, hook_end - 0.28) + '[hk];[v1][hk]overlay=0:0[v2];'
     g += fade(3, hook_end - 0.1, end_start - 0.3) + '[inf];[v2][inf]overlay=0:0[v3];'
+    if bee:
+        # Dini hovers above the phone and bobs while the narration plays (a still between the words).
+        v0, v1 = VOICE_DELAY_MS / 1000, VOICE_DELAY_MS / 1000 + voice_dur
+        g += (f'[7:v]format=rgba[bee];[v3][bee]overlay=x={BEE_XY[0]}:y=\'{BEE_XY[1]}+if(between(t,{v0:.2f},{v1:.2f}),'
+              f'10*sin(2*PI*3.4*t),0)\':shortest=0[v3];')
     g += fade(4, end_start) + '[en];[v3][en]overlay=0:0,format=yuv420p[v];'
     if voice:
         # Dini's narration (input 6) starts just after the hook lands; the music sits underneath it.
@@ -379,7 +386,7 @@ def build_filter(src_w, src_h, dur, phone=False, voice=False):
     return g
 
 
-def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur, phone=False, voice_path=None, voice_dur=0.0):
+def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur, phone=False, voice_path=None, voice_dur=0.0, bee_path=None):
     dur = min(max(src_dur, MIN_SECONDS), MAX_SECONDS)
     if voice_path:
         dur = min(max(dur, VOICE_DELAY_MS / 1000 + voice_dur + VOICE_TAIL_S), MAX_SECONDS)
@@ -392,7 +399,9 @@ def compose(clip_path, overlays, music_path, out_path, src_w, src_h, src_dur, ph
     cmd += ['-threads', '1', '-i', music_path]
     if voice_path:
         cmd += ['-threads', '1', '-i', voice_path]
-    cmd += ['-filter_complex_threads', '1', '-filter_complex', build_filter(src_w, src_h, dur, phone, bool(voice_path)),
+        if bee_path:
+            cmd += ['-threads', '1', '-loop', '1', '-framerate', str(FPS), '-t', f'{dur:.2f}', '-i', bee_path]
+    cmd += ['-filter_complex_threads', '1', '-filter_complex', build_filter(src_w, src_h, dur, phone, bool(voice_path), voice_dur, bool(bee_path)),
             '-map', '[v]', '-map', '[a]',
             '-c:v', 'libx264', '-threads', '2', '-x264-params', 'rc-lookahead=10:sliced-threads=0',
             '-preset', 'veryfast', '-crf', '20', '-r', str(FPS), '-pix_fmt', 'yuv420p',
@@ -491,7 +500,12 @@ def _render(job, out_dir, date_ordinal, fetch, work_dir, brand_slug, hook, brand
     voice_path, voice_dur = job_voice(job, brand, work)
     if voice_dur and voice_dur + VOICE_DELAY_MS / 1000 + 1.2 > MAX_SECONDS:
         raise ClipError(f'la voz dura {voice_dur:.1f} s: no cabe en {MAX_SECONDS:.0f} s; acorta el texto')
-    dur = compose(clip, ov, music, mp4, w, h, d, phone=phone, voice_path=voice_path, voice_dur=voice_dur)
+    bee_path = None
+    if voice_path and phone and brand.mascot is not None and job.get('bee', True):
+        bee_path = os.path.join(work, 'bee.png')
+        m = brand.mascot
+        m.resize((BEE_W, round(m.height * BEE_W / m.width)), Image.LANCZOS).save(bee_path)
+    dur = compose(clip, ov, music, mp4, w, h, d, phone=phone, voice_path=voice_path, voice_dur=voice_dur, bee_path=bee_path)
     verify = list(job.get('verify') or [])
     if phone:
         verify.append('Grabación de pantalla del menú público del restaurante con narración de Dini (voz generada por IA): revisa la etiqueta de contenido IA de cada red y que no aparezca ningún dato personal.')
