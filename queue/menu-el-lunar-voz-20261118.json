@@ -1,0 +1,32 @@
+{
+ "id": "menu-el-lunar-voz-20261118",
+ "type": "clip",
+ "run_after": "2026-11-18T04:30:00Z",
+ "window_min": 90,
+ "brand": "dinidine",
+ "client": "taqueria-el-lunar",
+ "business_name": "Taquería El Lunar",
+ "phone": true,
+ "phone_box": [
+  130,
+  330,
+  820,
+  1496
+ ],
+ "clip_file": "el-lunar-pantalla.mp4",
+ "dish": "Así se ve su menú digital",
+ "hook": "Tortas que sí se ven.",
+ "voice_text": "Taquería El Lunar. La torta Hawaiana, con res, piña y jamón. El Pambazo, dorado en salsa roja, con chorizo y papa.",
+ "end_title": "¿Y tus tortas? Escríbenos.",
+ "end_sub": "Escríbenos · DiniDine",
+ "caption": "En el menú digital de Taquería El Lunar: la torta Hawaiana con res, piña y jamón, y el Pambazo dorado en salsa roja con chorizo y papa, con foto y precio. ¿Y tu menú? Escríbenos.",
+ "hashtags": [
+  "menudigital",
+  "restaurantes",
+  "gwinnett",
+  "dinidine",
+  "tacos"
+ ],
+ "cta": "Escríbenos por WhatsApp",
+ "post_date": "2026-11-18"
+}
